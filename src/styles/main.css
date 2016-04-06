@@ -1,0 +1,14 @@
+@import 'variables.css';
+
+html {
+  background: $white;
+  border-radius: 3px;
+  display: flex;
+  transform: rotateX(10%);
+}
+
+.app {
+  .view {
+    color: $red;
+  }
+}
