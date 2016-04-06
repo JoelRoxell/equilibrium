@@ -6,8 +6,9 @@ Fast, unopinionated and minimal skeleton project. Start of your projects as quic
 * React
 * Redux
 * React-router
-* Webpack
+* Webpack (HMR)
 * PostCSS
+* Express
 
 
 ## Docs 
