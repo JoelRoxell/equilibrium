@@ -20,7 +20,9 @@ const webpackConfig = {
     root: config.base_path,
     alias: {
       components: `${config.dir_src}/components`,
-      styles: `${config.dir_src}/styles`
+      containers: `${config.dir_src}/containers`,
+      styles: `${config.dir_src}/styles`,
+      flow: `${config.dir_src}/flow`
     },
     extensions: ['', '.js', '.jsx', '.json', '.styl'],
     modulesDirectories: ['node_modules', 'vendor']

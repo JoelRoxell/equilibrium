@@ -1,9 +1,26 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Title from 'components/title'
+import {render} from 'react-dom'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import {Router, Route, hashHistory} from 'react-router'
+
 import style from 'styles/main' // eslint-disable-line
 
-ReactDOM.render(<Title title='Thank God it is friday!' />, document.getElementById('app'))
+import reducers from 'flow/reducers'
+
+import App from 'components/app'
+import About from 'containers/about-container'
+
+let store = createStore(reducers)
+
+render((
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path='/' component={App} />
+      <Route path='/about' component={About} />
+    </Router>
+  </Provider>
+), document.getElementById('app'))
 
 if (module.hot) {
   module.hot.accept()
