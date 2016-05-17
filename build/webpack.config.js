@@ -5,9 +5,10 @@ import config from '../build/config'
 import _debug from 'debug'
 import precss from 'precss'
 import autoprefixer from 'autoprefixer'
+import poststylus from 'poststylus'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-const debug = _debug('app:webpack:config')
 
+const debug = _debug('app:webpack:config')
 debug('Reading configuration')
 
 const webpackConfig = {
@@ -18,9 +19,10 @@ const webpackConfig = {
   resolve: {
     root: config.base_path,
     alias: {
-      components: `${config.dir_src}/components`
+      components: `${config.dir_src}/components`,
+      styles: `${config.dir_src}/styles`
     },
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json', '.styl'],
     modulesDirectories: ['node_modules', 'vendor']
   }
 }
@@ -103,9 +105,8 @@ webpackConfig.module.loaders = [{
   }
 },
 {
-  test: /\.css$/,
-  // ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-  loader: 'style-loader!css-loader!postcss-loader'
+  test: /\.styl$/,
+  loader: 'style-loader!css-loader!stylus-loader'
 },
 {
   test: /\.html$/,
@@ -115,6 +116,12 @@ webpackConfig.module.loaders = [{
 // Define proccesses that should be run
 webpackConfig.postcss = () => {
   return [precss, autoprefixer]
+}
+
+webpackConfig.stylus = {
+  use: [
+    poststylus(['autoprefixer'])
+  ]
 }
 
 module.exports = webpackConfig
