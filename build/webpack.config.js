@@ -108,11 +108,6 @@ webpackConfig.module.loaders = [{
   test: /\.styl$/,
   loader: 'style-loader!css-loader!stylus-loader'
 },
-// {
-//   test: /\.css$/,
-//   // ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-//   loader: 'style-loader!css-loader!postcss-loader'
-// },
 {
   test: /\.html$/,
   loader: 'raw'
