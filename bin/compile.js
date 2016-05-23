@@ -1,22 +1,28 @@
+import webpack from 'webpack'
 var _debug = require('debug')
 var debug = _debug('app:bin:compiler')
-import webpackConfig from '../build/webpack.config'
-import webpack from 'webpack'
+import webpackConfig from '../config/webpack.config'
 
 const compiler = webpack(webpackConfig)
 debug('Runing compiler')
 
 /* TODO Build bundle */
-compiler.run((err, compileInformation) => {
-  let formatedInfo = compileInformation.toJson()
-  debug('-- Webpack compile completed --')
-  debug(formatedInfo.toString())
-
+compiler.run((err, stats) => {
   if (err) {
-    debug('Compilation error occurred...', err)
+    return debug(err)
   }
 
-  (function () {
-    debug('Finished build...')
-  })()
+  var jsonStats = stats.toJson()
+
+  if (jsonStats.errors.length > 0) {
+    return console.error(jsonStats.errors)
+  }
+
+  if (jsonStats.warnings.length > 0) {
+    console.warn(jsonStats.warnings)
+  }
+
+  console.log(webpackConfig.output.path)
+  debug('-- Webpack compile completed --')
+  debug('Compiler finished.')
 })

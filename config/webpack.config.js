@@ -1,12 +1,12 @@
 import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import config from '../build/config'
+import config from './config'
 import _debug from 'debug'
 import precss from 'precss'
 import autoprefixer from 'autoprefixer'
 import poststylus from 'poststylus'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+// import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const debug = _debug('app:webpack:config')
 debug('Reading configuration')
@@ -37,7 +37,7 @@ webpackConfig.entry = [
 
 // Bundle Output
 webpackConfig.output = {
-  path: path.join(__dirname, 'www'),
+  path: path.join(config.base_path, 'build'),
   filename: 'bundle.js',
   publicPath: '/assets/',
   chunkFilename: '[id].js'

@@ -1,15 +1,16 @@
 import express from 'express'
 import webpack from 'webpack'
 import _debug from 'debug'
-let debug = _debug('app:server')
 import path from 'path'
-
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from '../build/webpack.config.js'
+import config from '../config'
+// import config from '../build/webpack.config'
+let debug = _debug('app:server')
 let app = express()
 
-let compiler = webpack(webpackConfig)
+let compiler = webpack(config.webpackConfig)
+
 debug('Starting server...')
 
 // TODO: read parameters from config.
@@ -34,7 +35,7 @@ app.use(webpackHotMiddleware(compiler, {
   heartbeat: 10 * 1000
 }))
 
-app.use('/', express.static(path.resolve(__dirname, '../www')))
+app.use('/', express.static(path.resolve(__dirname, '../build')))
 
 var server = app.listen(3000, function () {
   var host = server.address().address

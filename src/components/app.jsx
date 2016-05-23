@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Title title={`Thank god it's friday!`} />
+        <Title title={`Thank god it's friday`} />
         <div>
           React-router
         </div>
