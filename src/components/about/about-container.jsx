@@ -1,5 +1,4 @@
-import {connect} from 'react-redux'
-import About from 'components/about'
+import { connect } from 'react-redux'
 
 export default connect((state) => {
   return {
@@ -7,4 +6,4 @@ export default connect((state) => {
   }
 }, () => {
   return {}
-})(About)
+})

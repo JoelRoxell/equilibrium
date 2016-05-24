@@ -9,7 +9,7 @@ import style from 'styles/main' // eslint-disable-line
 import reducers from 'flow/reducers'
 
 import App from 'components/app'
-import About from 'containers/about-container'
+import { About } from 'components/about'
 
 let store = createStore(reducers)
 

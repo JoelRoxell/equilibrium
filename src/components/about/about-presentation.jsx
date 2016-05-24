@@ -3,11 +3,19 @@ import React, {PropTypes} from 'react'
 const About = ({title, description, bullets}) => {
   return (
     <div className='about'>
-      <div className='about-title'>{title}</div>
-      <div className='about-description'>{description}</div>
+      <div className='about-title'>
+        {title}
+      </div>
+      <div className='about-description'>
+        {description}
+      </div>
       <div className='about-bullet-wrapper'>
         {bullets.map((bullet) => {
-          return <p className='about-bullet'>{bullet}</p>
+          return (
+            <p className='about-bullet'>
+              {bullet}
+            </p>
+          )
         })}
       </div>
     </div>

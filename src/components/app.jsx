@@ -9,7 +9,9 @@ class App extends Component {
         <div>
           React-router
         </div>
-        <div>{this.props.children}</div>
+        <div>
+          {this.props.children}
+        </div>
       </div>
     )
   }
