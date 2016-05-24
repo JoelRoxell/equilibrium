@@ -10,12 +10,9 @@ const About = ({title, description, bullets}) => {
         {description}
       </div>
       <div className='about-bullet-wrapper'>
-        {bullets.map((bullet, i) => {
+        {bullets.map((bullet) => {
           return (
-            <p
-              className='about-bullet'
-              key={i}
-            >
+            <p className='about-bullet'>
               {bullet}
             </p>
           )
