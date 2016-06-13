@@ -7,7 +7,9 @@ const initalState = {
     bullets: [
       'BulletOne',
       'BulletTwo',
-      'BulletThree'
+      'BulletThree',
+      'BulletFour',
+      'BulletFive'
     ]
   }
 }

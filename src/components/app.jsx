@@ -1,14 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import Title from 'components/title'
+import {Navigation} from 'components/navigation'
 
 class App extends Component {
   render() {
     return (
       <div>
         <Title title={`Thank god it's friday`} />
-        <div>
-          React-router
-        </div>
+        <Navigation />
         <div>
           {this.props.children}
         </div>

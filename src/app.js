@@ -2,7 +2,11 @@ import React from 'react'
 import {render} from 'react-dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import {Router, Route, hashHistory} from 'react-router'
+import {
+  Router,
+  Route,
+  hashHistory
+} from 'react-router'
 
 import style from 'styles/main' // eslint-disable-line
 
@@ -16,8 +20,9 @@ let store = createStore(reducers)
 render((
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path='/' component={App} />
-      <Route path='/about' component={About} />
+      <Route path='/' component={App}>
+        <Route path='/about' component={About} />
+      </Route>
     </Router>
   </Provider>
 ), document.getElementById('app'))

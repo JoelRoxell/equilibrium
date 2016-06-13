@@ -1,13 +1,13 @@
-import AboutPresentation from './about-presentation'
-import AboutContainer from './about-container'
+import _AboutPresentation from './about-presentation'
+import _AboutContainer from './about-container'
 
 /**
  * Export each sub module to allow each part to be either extended or used indiviually.
  */
-module.exports = {
-  AboutPresentation,
-  AboutContainer,
-  About: AboutContainer(AboutPresentation)
-}
+export const AboutPresentation = _AboutPresentation
 
-export var test = 10
+export const AboutContainer = _AboutContainer
+
+export const About = (function() {
+  return _AboutContainer(_AboutPresentation)
+})()
