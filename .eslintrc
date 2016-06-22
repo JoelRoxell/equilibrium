@@ -27,7 +27,7 @@
     "flow-vars/define-flow-type": 1,
     "flow-vars/use-flow-type": 1,
     "space-before-function-paren": 0,
-    "quotes": ["error", "single", {"allowTemplateLiterals": true}]
+    "quotes": ["error", "single", {"allowTemplateLiterals": true}],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": false,
       "arraysInObjects": false

@@ -1,5 +1,3 @@
-import App from './app'
+import _App from './app';
 
-export default {
-  App
-}
+export const App = _App;
