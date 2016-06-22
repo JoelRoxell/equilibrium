@@ -1,15 +1,18 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true
+  },
   "parser"  : "babel-eslint",
   "extends" : [
     "standard",
-    "standard-react"
+    "standard-react",
+    "google"
   ],
   "plugins" : [
     "flow-vars"
   ],
-  "env"     : {
-    "browser" : true
-  },
   "globals" : {
     "Action"       : false,
     "__DEV__"      : false,
@@ -19,11 +22,16 @@
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [2, "never"],
+    "semi" : [2, "always"],
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
     "flow-vars/use-flow-type": 1,
     "space-before-function-paren": 0,
     "quotes": ["error", "single", {"allowTemplateLiterals": true}]
+    "object-curly-spacing": ["error", "always", {
+      "objectsInObjects": false,
+      "arraysInObjects": false
+    }],
+    "no-console": 0
   }
 }
