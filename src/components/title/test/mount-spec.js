@@ -12,9 +12,7 @@ describe('Title', () => {
     component = renderComponent(App);
   });
 
-  describe('Render initial view', () => {
-    it('Render title', () => {
-      expect(component.find('.title')).to.exist;
-    });
+  it('Renders', () => {
+    expect(component.find('.title')).to.exist;
   });
 });

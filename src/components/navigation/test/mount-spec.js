@@ -12,7 +12,7 @@ describe('Navigation', () => {
     component = renderComponent(App);
   });
 
-  it('Render navigation', () => {
+  it('Renders', () => {
     expect(component.find('.navigation')).to.exist;
   });
 });

@@ -7,23 +7,7 @@
     "start": "webpack",
     "dev": "babel-node server/app.js",
     "test": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive",
-    "test-watch": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --watch --watch-extensions jsx",
-    "compile": "better-npm-run compile"
-  },
-  "betterScripts": {
-    "compile": {
-      "command": "babel-node bin/compile",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    },
-    "development": {
-      "command": "babel-node server/app.js",
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "app:*"
-      }
-    }
+    "test-watch": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --watch --watch-extensions jsx"
   },
   "author": "Joel Roxell",
   "license": "ISC",
@@ -50,7 +34,6 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
     "babel-runtime": "^6.3.19",
-    "better-npm-run": "^0.0.8",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
     "css-loader": "^0.23.1",
@@ -86,7 +69,6 @@
     "react-transform-hmr": "^1.0.2",
     "redbox-react": "^1.2.2",
     "redux": "^3.5.2",
-    "style-loader": "^0.13.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.0.0",
     "webpack": "^1.12.14",
