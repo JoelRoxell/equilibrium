@@ -1,9 +1,9 @@
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-export default connect((state) => {
+export default connect(state => {
   return {
     ...state.app.about
-  }
+  };
 }, () => {
-  return {}
-})
+  return {};
+});

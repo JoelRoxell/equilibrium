@@ -16,6 +16,7 @@ describe('Instantiate SPA', () => {
     it('Render title', () => {
       expect(component.find('.title')).to.exist;
     });
+
     it('Render navigation', () => {
       expect(component.find('.navigation')).to.exist;
     });

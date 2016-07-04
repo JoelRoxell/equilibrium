@@ -4,14 +4,10 @@
     "es6": true,
     "mocha": true
   },
-  "parser"  : "babel-eslint",
   "extends" : [
     "standard",
     "standard-react",
     "google"
-  ],
-  "plugins" : [
-    "flow-vars"
   ],
   "globals" : {
     "Action"       : false,
@@ -21,17 +17,23 @@
     "__DEBUG_NEW_WINDOW__" : false,
     "__BASENAME__" : false
   },
+  "parser"  : "babel-eslint",
+  "plugins" : [
+    "flow-vars",
+    "react"
+  ],
   "rules": {
     "semi" : [2, "always"],
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
     "flow-vars/use-flow-type": 1,
     "space-before-function-paren": 0,
-    "quotes": ["error", "single", {"allowTemplateLiterals": true}],
+    "quotes": [2, "single", {"allowTemplateLiterals": true}],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": false,
       "arraysInObjects": false
     }],
-    "no-console": 0
+    "no-console": 0,
+    "react/jsx-curly-spacing": [2, "always"]
   }
 }

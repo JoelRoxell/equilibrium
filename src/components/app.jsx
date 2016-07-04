@@ -9,10 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Title title={`TGIF - Thank god it's friday`} />
+        <Title title={ 'TGIF - Thank god it\'s friday' } />
         <Navigation />
         <div>
-          {this.props.children}
+          { this.props.children }
         </div>
       </div>
     );

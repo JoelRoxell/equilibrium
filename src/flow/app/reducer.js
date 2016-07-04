@@ -1,4 +1,4 @@
-import * as types from './actions'
+import * as types from './actions';
 
 const initalState = {
   about: {
@@ -12,8 +12,14 @@ const initalState = {
       'BulletFive'
     ]
   }
-}
+};
 
+/**
+ * General app reducer
+ * @param  {[type]} state  =             initalState [description]
+ * @param  {[type]} action =             {}          [description]
+ * @return {[type]}        [description]
+ */
 function app(state = initalState, action = {}) {
   switch (action.type) {
     case types.SET_TITLE:
@@ -22,10 +28,10 @@ function app(state = initalState, action = {}) {
           ...state.about,
           title: action.title
         }
-      }
+      };
     default:
-      return state
+      return state;
   }
 }
 
-export default app
+export default app;
