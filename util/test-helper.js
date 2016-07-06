@@ -6,7 +6,7 @@ import chai, { expect } from 'chai';
 import React from 'react';
 import chaiJquery from 'chai-jquery';
 
-/* Set up testing environemnt in CLI, provide a dom in terminal. */
+/* Create testing environemnt in CLI, provide a dom in terminal. */
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 global.navigator = {
@@ -17,8 +17,8 @@ const $ = _$(global.window);
 
 /**
  * Render component helper method used to render components into the created cli-DOM.
- * @param  {Component} ComponentClass React comonent
  *
+ * @param  {Component} ComponentClass React comonent
  * @return {DOMElement} Wrapped jquery element node.
  */
 function renderComponent(ComponentClass) {
@@ -27,7 +27,19 @@ function renderComponent(ComponentClass) {
   return $(ReactDOM.findDOMNode(domRef)); // produces HTML
 }
 
-// Build a helper to simulate events
+/**
+ * Event simulator using react Test Utilities.
+ *
+ * @param  {String} eventName Event type to simulate.
+ * @param  {Mixed} value      Value to trigger event with.
+ */
+$.fn.simulate = function(eventName, value) {
+  if (value) {
+    this.val(value);
+  }
+
+  TestUtils.Simulate[eventName](this[0]); // Trigger a simulate event with passed node.
+};
 
 // Set up chai-jquery
 chaiJquery(chai, chai.util, $);
