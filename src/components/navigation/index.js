@@ -1,3 +1,3 @@
-import _Navigation from './navigation'
+import _Navigation from './navigation';
 
-export const Navigation = _Navigation
+export const Navigation = _Navigation;
