@@ -14,6 +14,7 @@ import reducers from 'flow/reducers';
 
 import App from 'components/app';
 import { About } from 'components/about';
+import Signin from 'components/signin';
 
 let store = createStore(reducers);
 
@@ -22,6 +23,7 @@ render((
     <Router history={ hashHistory }>
       <Route path='/' component={ App }>
         <Route path='/about' component={ About } />
+        <Route path='/signin' component={ Signin } />
       </Route>
     </Router>
   </Provider>
