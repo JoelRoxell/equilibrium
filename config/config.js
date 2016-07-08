@@ -1,15 +1,16 @@
-import path from 'path'
-import _debug from 'debug'
-const debug = _debug('app:build:config')
+const path = require('path');
 
-debug('app:build:config')
-
-const config = {
-  env: process.env.NODE_ENV || 'development',
+let config = {
+  env: {
+    PRODUCTION: 'production',
+    DEVELOPMENT: 'development',
+    TEST: 'test'
+  },
 
   // Structure
   base_path: path.resolve(__dirname, '..'),
   dir_src: 'src',
+  dir_test: 'test',
   dir_dist: 'dist',
   dir_server: 'server',
 
@@ -18,4 +19,4 @@ const config = {
   server_port: 3000
 }
 
-export default config
+module.exports = config;

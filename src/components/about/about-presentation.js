@@ -1,19 +1,28 @@
 import React, { PropTypes } from 'react';
-
+import style from './style/about';
+/**
+ * About presentational component.
+ *
+ * @param  {String} title Application title.
+ * @param  {String} description Breif application description.
+ * @param  {Array<String>}  bullets Array of string bullets.
+ *
+ * @return {StatelessComponent} React component.
+ */
 const About = ({ title, description, bullets }) => {
   return (
-    <div className='about'>
-      <div className='about-title'>
+    <div className={ style.about }>
+      <div className={ style.title }>
         { title }
       </div>
-      <div className='about-description'>
+      <div className={ style.description }>
         { description }
       </div>
-      <div className='about-bullet-wrapper'>
+      <div className={ style.bulletWrapper }>
         { bullets.map((bullet, i) => {
           return (
             <p
-              className='about-bullet'
+              className={ style.bullet }
               key={ i }
             >
               { bullet }

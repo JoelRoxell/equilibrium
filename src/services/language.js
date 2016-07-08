@@ -17,6 +17,7 @@ class LanguageService {
     this.language = language;
 
     this._setLanguageFromStore();
+    console.log('Here', store);
     store.subscribe(this._setLanguageFromStore);
   }
 

@@ -4,19 +4,18 @@ import _debug from 'debug';
 import path from 'path';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackTestConfig from '../test/webpack.tests.config.js';
 import config from '../config';
 // import config from '../build/webpack.config'
-let debug = _debug('app:server');
-let app = express();
 
-let compiler = webpack(config.webpackConfig);
-
-debug('Starting server...');
+let debug = _debug('app:server'),
+  app = express(),
+  compiler = webpack(webpackTestConfig); // webpack(config.webpackConfig);
 
 // TODO: read parameters from config.
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
-  filename: 'bundle.js',
+  filename: 'test.bundle.js',
   publicPath: '/assets/',
   quiet: false,
   noInfo: false,
@@ -36,10 +35,10 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.use('/', express.static(path.resolve(__dirname, '../build')));
+app.use('/doc', express.static(path.resolve(__dirname, '../doc')));
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+const server = app.listen(3000, function () {
+  let port = server.address().port;
 
-  debug('Example app listening at http://%s:%s', host, port);
+  debug('Development server listening on port', port);
 });

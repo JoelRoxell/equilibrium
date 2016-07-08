@@ -1,18 +1,14 @@
-/* eslint no-unused-expressions: 0 */
-import {
-  renderComponent,
-  expect
-} from '../../../../util/test-helper';
-import App from 'components/app';
+import { expect } from 'helpers/test-helper';
 
-describe('Title', () => {
-  let component;
+import Title from 'components/title';
 
-  beforeEach(() => {
-    component = renderComponent(App);
-  });
+describe('#Title component', function() {
+  it('-Classname is mapped', function() {
+    const container = document.getElementById('app'),
+      _node = renderComponent(Title, container, {
+        title: 'App Title'
+      });
 
-  it('Renders', () => {
-    expect(component.find('.title')).to.exist;
+    expect(_node.innerText).to.equal('App Title');
   });
 });

@@ -40,6 +40,7 @@
     "react/jsx-curly-spacing": [2, "always"],
     "one-var": [2, "always"],
     "camelcase": 0,
-    "no-new-func": 0
+    "no-new-func": 0,
+    "react/jsx-no-literals": 1
   }
 }

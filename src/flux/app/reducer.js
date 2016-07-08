@@ -4,22 +4,16 @@ const initalState = {
   language: 'en_US',
   about: {
     title: 'About this project',
-    description: 'Description about this project',
-    bullets: [
-      'BulletOne',
-      'BulletTwo',
-      'BulletThree',
-      'BulletFour',
-      'BulletFive'
-    ]
+    description: `A condition in which all acting influences are canceled by others,
+      resulting in a stable, balanced, or unchanging system.`
   }
 };
 
 /**
  * General app reducer
- * @param  {Object} state  initalState
- * @param  {Object} action Redux action descriptor
- * @return {Object}        next state
+ * @param  {Object} state  Inital state.
+ * @param  {Object} action Redux action descriptor.
+ * @return {Object}        Next state.
  */
 function app(state = initalState, action = {}) {
   switch (action.type) {
