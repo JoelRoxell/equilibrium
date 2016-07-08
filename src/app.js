@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import {
   Router,
@@ -21,9 +21,10 @@ import Signin from 'components/signin';
 import firebaseService from 'services/firebase';
 window.firebase = firebaseService;
 
-const store = createStore(
-  reducers,
-  applyMiddleware(thunk)
+const store = createStore(reducers, compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
 
 render((

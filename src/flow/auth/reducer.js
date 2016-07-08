@@ -1,8 +1,9 @@
 import {
   SIGNING_IN,
   AUTH_USER,
-  DE_AUTH
-} from './actions';
+  DE_AUTH,
+  AUTH_ERROR
+} from './types';
 
 /**
  * Authentication reducer
@@ -16,7 +17,8 @@ export default function(state = {}, action) {
     case AUTH_USER:
       return {
         ...state,
-        authenticated: true
+        authenticated: true,
+        loading: false
       };
     case SIGNING_IN:
       return {
@@ -26,7 +28,14 @@ export default function(state = {}, action) {
     case DE_AUTH:
       return {
         ...state,
-        authenticated: false
+        authenticated: false,
+        loading: false
+      };
+    case AUTH_ERROR:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        loading: false
       };
     default:
       return state;

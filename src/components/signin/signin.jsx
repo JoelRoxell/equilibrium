@@ -1,18 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { actions } from 'flow/auth';
 
 class Signin extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
     signInUser: PropTypes.func,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    errorMessage: PropTypes.string
   };
 
   handleFormSubmit = ({ email, password }) => {
-    console.log(email, password);
     this.props.dispatch(actions.signInUser({ email, password }));
   };
+
+  renderErrorMessage() {
+    console.log(this.props);
+    if (this.props.errorMessage) {
+      return (
+        <div>
+        { this.props.errorMessage }
+        </div>
+      );
+    }
+  }
 
   render() {
     const { handleSubmit } = this.props;
@@ -37,6 +49,7 @@ class Signin extends Component {
             placeholder='password'
           />
         </div>
+        { this.renderErrorMessage() }
         <button
           action='submit'
           className=''
@@ -48,7 +61,12 @@ class Signin extends Component {
   }
 }
 
-export default reduxForm({
+// Had to wrapp with connect, reduxForm mapStateToProp isn't working...
+export default connect(state => {
+  return {
+    errorMessage: state.auth.errorMessage
+  };
+})(reduxForm({
   form: 'signin',
   fields: ['email', 'password']
-}, null, actions)(Signin);
+})(Signin));

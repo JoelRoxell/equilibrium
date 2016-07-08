@@ -2,7 +2,8 @@ import firebaseService from 'services/firebase';
 import { browserHistory } from 'react-router';
 import {
   SIGNING_IN,
-  AUTH_USER
+  AUTH_USER,
+  AUTH_ERROR
 } from './types';
 
 /**
@@ -14,9 +15,13 @@ import {
  */
 export function signInUser({ email, password }) {
   return function(dispatch) {
-    firebaseService.signIn({ email, password }, res => {
+    firebaseService.signIn({ email, password }).then(res => {
       dispatch({ type: AUTH_USER });
       browserHistory.push('/about');
+    }).catch(err => {
+      console.log(err);
+
+      dispatch(authError(err.message));
     });
 
     dispatch({ type: SIGNING_IN });
@@ -31,8 +36,21 @@ export function signInUser({ email, password }) {
  */
 export function createUser({ email, password }) {
   return function(dispatch) {
-    firebaseService.createUser({ email, password }, res => {
+    firebaseService.createUser({ email, password }).then(res => {
       console.log(res);
     });
+  };
+}
+
+/**
+ * Error action creator used to pass an error message to the user.
+ *
+ * @param  {String} error Message to be displayed.
+ * @return {Object}       Error action object.
+ */
+export function authError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: error
   };
 }

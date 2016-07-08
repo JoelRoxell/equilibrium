@@ -3,20 +3,16 @@ import firebaseConfig from 'config/firebase';
 
 class FirebaseService {
   constructor() {
-    this.app = firebase.initializeApp(firebaseConfig.option, 'authentication');
+    this.app = firebase.initializeApp(firebaseConfig.option, firebaseConfig.appName);
     this.auth = this.app.auth();
   }
 
-  createUser({ email, password }, cb) {
-    this.auth.createUserWithEmailAndPassword(email, password).then(res => {
-      console.log(res);
-    });
+  createUser({ email, password }) {
+    return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  signIn({ email, password }, cb) {
-    this.auth.signInWithEmailAndPassword(email, password).then(cb).catch(err => {
-      console.log('services', err.code, err.message);
-    });
+  signIn({ email, password }) {
+    return this.auth.signInWithEmailAndPassword(email, password);
   }
 
   signOut() {
