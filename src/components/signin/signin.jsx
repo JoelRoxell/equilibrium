@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { actions } from 'flow/auth';
 
 class Signin extends Component {
   static propTypes = {
-    handleSubmit: PropTypes.func
+    handleSubmit: PropTypes.func,
+    signInUser: PropTypes.func,
+    dispatch: PropTypes.func
   };
 
   handleFormSubmit = ({ email, password }) => {
-    console.log(arguments);
     console.log(email, password);
+    this.props.dispatch(actions.signInUser({ email, password }));
   };
 
   render() {
@@ -48,4 +51,4 @@ class Signin extends Component {
 export default reduxForm({
   form: 'signin',
   fields: ['email', 'password']
-})(Signin);
+}, null, actions)(Signin);
