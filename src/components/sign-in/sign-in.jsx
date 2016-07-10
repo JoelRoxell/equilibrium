@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { actions } from 'flow/auth';
 import { Link } from 'react-router';
-import Input from 'components/common/form/input';
+import { Input, SubmitButton } from 'components/common/form';
 
 class Signin extends Component {
   static propTypes = {
@@ -63,12 +64,7 @@ class Signin extends Component {
             />
           </div>
           { this.renderErrorMessage() }
-          <button
-            action='submit'
-            className=''
-          >
-            { `Sign in` }
-          </button>
+          <SubmitButton text='Sign in' />
         </form>
         <div className={ `${Signin.className}-footer` }>
           { `Don't have an account? ` }
