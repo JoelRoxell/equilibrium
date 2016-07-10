@@ -1,5 +1,5 @@
 import firebaseService from 'services/firebase';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import {
   SIGNING_IN,
   AUTH_USER,
@@ -17,7 +17,7 @@ export function signInUser({ email, password }) {
   return function(dispatch) {
     firebaseService.signIn({ email, password }).then(res => {
       dispatch({ type: AUTH_USER });
-      browserHistory.push('/about');
+      hashHistory.push('/about');
     }).catch(err => {
       console.log(err);
 

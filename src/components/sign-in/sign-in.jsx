@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { actions } from 'flow/auth';
 import { Link } from 'react-router';
+import Input from 'components/common/form/input';
 
 class Signin extends Component {
   static propTypes = {
@@ -47,15 +47,15 @@ class Signin extends Component {
           onSubmit={ handleSubmit(this.handleFormSubmit) }
         >
           <div className={ `${Signin.className}-field-wrapper` }>
-            <Field
+            <Input
               name='email'
               component='input'
               type='text'
-              placeholder='email'
+              placeholder='Email'
             />
           </div>
           <div className={ `${Signin.className}-field-wrapper` }>
-            <Field
+            <Input
               name='password'
               component='input'
               type='password'

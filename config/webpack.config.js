@@ -24,7 +24,8 @@ const webpackConfig = {
       config: `${config.dir_src}/config`,
       styles: `${config.dir_src}/styles`,
       flow: `${config.dir_src}/flow`,
-      services: `${config.dir_src}/services`
+      services: `${config.dir_src}/services`,
+      helpers: `${config.dir_src}/helpers`
     },
     extensions: ['', '.js', '.jsx', '.json', '.styl'],
     modulesDirectories: ['node_modules', 'vendor']
