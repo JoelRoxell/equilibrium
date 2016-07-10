@@ -11,7 +11,7 @@ class App extends Component {
       <div className='app'>
         <Title title={ 'TGIF - Thank god it\'s friday' } />
         <Navigation />
-        <div>
+        <div className='app-view'>
           { this.props.children }
         </div>
       </div>
