@@ -64,7 +64,9 @@ class Signin extends Component {
             />
           </div>
           { this.renderErrorMessage() }
-          <SubmitButton text='Sign in' />
+          <div className={ `${Signin.className}-submit-wrapper` }>
+            <SubmitButton text='Sign in' />
+          </div>
         </form>
         <div className={ `${Signin.className}-footer` }>
           { `Don't have an account? ` }
