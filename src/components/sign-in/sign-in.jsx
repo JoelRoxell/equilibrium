@@ -10,7 +10,8 @@ class Signin extends Component {
     handleSubmit: PropTypes.func,
     signInUser: PropTypes.func,
     dispatch: PropTypes.func,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    errors: PropTypes.shape()
   };
 
   static className = 'sign-in';
@@ -109,7 +110,8 @@ function validate(form) {
 // Had to wrapp with connect, reduxForm mapStateToProp isn't working...
 export default connect(state => {
   return {
-    errorMessage: state.auth.errorMessage
+    errorMessage: state.auth.errorMessage,
+    errors: state.form.sigin
   };
 })(reduxForm({
   form: 'signin',
