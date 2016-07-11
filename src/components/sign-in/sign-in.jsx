@@ -77,6 +77,35 @@ class Signin extends Component {
   }
 }
 
+/**
+ * Validates signin form.
+ *
+ * @param {OBject} form Object containing specified redux-form properies.
+ *
+ * @return {Object} Error message object used by redux-form.
+ */
+function validate(form) {
+  const fields = {
+      email: {
+        type: 'text',
+        message: 'Please enter an email address.'
+      },
+      password: {
+        type: 'password',
+        message: 'Please enter a password.'
+      }
+    },
+    errors = {};
+
+  Object.keys(fields).forEach(attr => {
+    if (!form.hasOwnProperty(attr)) {
+      errors[attr] = fields[attr].message;
+    }
+  });
+
+  return errors;
+}
+
 // Had to wrapp with connect, reduxForm mapStateToProp isn't working...
 export default connect(state => {
   return {
@@ -84,5 +113,6 @@ export default connect(state => {
   };
 })(reduxForm({
   form: 'signin',
-  fields: ['email', 'password']
+  fields: ['email', 'password'],
+  validate
 })(Signin));
