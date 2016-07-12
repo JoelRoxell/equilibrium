@@ -7,7 +7,6 @@ import {
   Route,
   hashHistory
 } from 'react-router';
-
 import thunk from 'redux-thunk';
 
 import style from 'styles/main' // eslint-disable-line
@@ -15,8 +14,13 @@ import style from 'styles/main' // eslint-disable-line
 import reducers from 'flow/reducers';
 
 import App from 'components/app';
-import { About } from 'components/about';
+
+/* Currently routes can't be imported correctly,
+ * e.g. about-route type becomes undefined on import and prevents rendering in router tree.
+ * TODO: Evaluate a solution and/or find the issue created with es6 import.
+ */
 import Account, { SignIn, Register } from 'components/account';
+import About from 'components/about';
 
 import firebaseService from 'services/firebase';
 window.firebase = firebaseService;
