@@ -10,7 +10,7 @@ class Navigation extends Component {
             <Link to='/'>Home</Link>
           </li>
           <li className='navigation-list-item'>
-            <Link to='/signin'>Sign in</Link>
+            <Link to='/account/signin'>Sign in</Link>
           </li>
           <li className='navigation-list-item'>
             <Link to='/about'>About</Link>

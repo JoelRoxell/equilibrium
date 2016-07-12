@@ -16,7 +16,7 @@ import reducers from 'flow/reducers';
 
 import App from 'components/app';
 import { About } from 'components/about';
-import SignIn from 'components/sign-in';
+import Account, { SignIn, Register } from 'components/account';
 
 import firebaseService from 'services/firebase';
 window.firebase = firebaseService;
@@ -27,13 +27,15 @@ const store = createStore(reducers, compose(
   )
 );
 
-console.log(SignIn);
 render((
   <Provider store={ store }>
     <Router history={ hashHistory }>
       <Route path='/' component={ App }>
-        <Route path='/about' component={ About } />
-        <Route path='/signin' component={ SignIn } />
+        <Route path='about' component={ About } />
+        <Route path='account' component={ Account }>
+          <Route path='register' component={ Register } />
+          <Route path='signin' component={ SignIn } />
+        </Route>
       </Route>
     </Router>
   </Provider>
