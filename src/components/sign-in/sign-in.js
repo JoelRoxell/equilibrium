@@ -5,25 +5,35 @@ import { actions } from 'flow/auth';
 import { Link } from 'react-router';
 import { Input, SubmitButton } from 'components/common/form';
 
-class Signin extends Component {
-  static propTypes = {
-    handleSubmit: PropTypes.func,
-    signInUser: PropTypes.func,
-    dispatch: PropTypes.func,
-    errorMessage: PropTypes.string,
-    errors: PropTypes.shape()
-  };
+/**
+ * Sign in form component
+ */
+class SignIn extends Component {
+  constructor(props) {
+    super(props);
 
-  static className = 'sign-in';
+    this.className = 'sign-in'; // Should be a static variable, jsdoc can't parse it atm.
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
 
-  handleFormSubmit = ({ email, password }) => {
+  /**
+   * Dispatch a created action based on passed email and password.
+   *
+   * @param  {Object} FormProp  contains the specifed form properties(emal, password).
+   */
+  handleFormSubmit({ email, password }) {
     this.props.dispatch(actions.signInUser({ email, password }));
-  };
+  }
 
+  /**
+   * Renders error message passed from server.
+   *
+   * @return {Compnent} Html block.
+   */
   renderErrorMessage() {
     if (this.props.errorMessage) {
       return (
-        <div className={ `${Signin.className}-error-wrapper` }>
+        <div className={ `${this.className}-error-wrapper` }>
           { this.props.errorMessage }
         </div>
       );
@@ -34,21 +44,21 @@ class Signin extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className={ Signin.className }>
-        <div className={ `${Signin.className}-header` }>
-          <div className={ `${Signin.className}-welcome-text` }>
+      <div className={ this.className }>
+        <div className={ `${this.className}-header` }>
+          <div className={ `${this.className}-welcome-text` }>
             { `Welcome` }
           </div>
-          <div className={ `${Signin.className}-title` }>
+          <div className={ `${this.className}-title` }>
             { `Sign in,` }
             <span> { `some more descriptive text.` }</span>
           </div>
         </div>
         <form
-          className={ `${Signin.className}-form` }
+          className={ `${this.className}-form` }
           onSubmit={ handleSubmit(this.handleFormSubmit) }
         >
-          <div className={ `${Signin.className}-field-wrapper` }>
+          <div className={ `${this.className}-field-wrapper` }>
             <Input
               name='email'
               component='input'
@@ -56,7 +66,7 @@ class Signin extends Component {
               placeholder='Email'
             />
           </div>
-          <div className={ `${Signin.className}-field-wrapper` }>
+          <div className={ `${this.className}-field-wrapper` }>
             <Input
               name='password'
               component='input'
@@ -65,11 +75,11 @@ class Signin extends Component {
             />
           </div>
           { this.renderErrorMessage() }
-          <div className={ `${Signin.className}-submit-wrapper` }>
+          <div className={ `${this.className}-submit-wrapper` }>
             <SubmitButton text='Sign in' />
           </div>
         </form>
-        <div className={ `${Signin.className}-footer` }>
+        <div className={ `${this.className}-footer` }>
           { `Don't have an account? ` }
           <Link to='/register'>{ `Register here` }</Link>
         </div>
@@ -78,6 +88,14 @@ class Signin extends Component {
   }
 }
 
+SignIn.propTypes = {
+  handleSubmit: PropTypes.func,
+  signInUser: PropTypes.func,
+  dispatch: PropTypes.func,
+  errorMessage: PropTypes.string,
+  errors: PropTypes.shape()
+};
+
 /**
  * Validates signin form.
  *
@@ -85,7 +103,7 @@ class Signin extends Component {
  *
  * @return {Object} Error message object used by redux-form.
  */
-function validate(form) {
+function validateSignIn(form) {
   const fields = {
       email: {
         type: 'text',
@@ -116,5 +134,5 @@ export default connect(state => {
 })(reduxForm({
   form: 'signin',
   fields: ['email', 'password'],
-  validate
-})(Signin));
+  validateSignIn
+})(SignIn));

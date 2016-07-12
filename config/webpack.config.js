@@ -2,14 +2,10 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from './config';
-import _debug from 'debug';
 import precss from 'precss';
 import autoprefixer from 'autoprefixer';
 import poststylus from 'poststylus';
 // import ExtractTextPlugin from 'extract-text-webpack-plugin'
-
-const debug = _debug('app:webpack:config');
-debug('Reading configuration');
 
 const webpackConfig = {
   module: {},
@@ -35,7 +31,7 @@ const webpackConfig = {
 // Entry Points
 webpackConfig.entry = [
   'webpack-hot-middleware/client?path=/__webpack_hmr',
-  `${config.base_path}/${config.dir_src}/app.js`
+  `${config.base_path}/${config.dir_src}/main.js`
 ];
 
 // Bundle Output

@@ -1,5 +1,14 @@
 import React, { PropTypes } from 'react';
 
+/**
+ * About presentational component
+ *
+ * @param  {String} title cool title
+ * @param  {String} description antoher desc
+ * @param  {Array<String>}  bullets array of string bullets
+ *
+ * @return {StatelessComponent} dumb
+ */
 const About = ({ title, description, bullets }) => {
   return (
     <div className='about'>
