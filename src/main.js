@@ -40,6 +40,7 @@ render((
           <Route path='register' component={ Register } />
           <Route path='signin' component={ SignIn } />
         </Route>
+        <Route path='signin' component={ SignIn } />
       </Route>
     </Router>
   </Provider>

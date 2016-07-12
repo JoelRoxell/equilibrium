@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
 import { actions } from 'flow/auth';
-import { Link } from 'react-router';
 import { Input, SubmitButton } from 'components/common/form';
+import { connect } from 'react-redux';
 
 /**
  * Sign in form component
@@ -44,46 +43,31 @@ class SignIn extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className={ this.className }>
-        <div className={ `${this.className}-header` }>
-          <div className={ `${this.className}-welcome-text` }>
-            { `Welcome` }
-          </div>
-          <div className={ `${this.className}-title` }>
-            { `Sign in,` }
-            <span> { `some more descriptive text.` }</span>
-          </div>
+      <form
+        className={ `${this.className}` }
+        onSubmit={ handleSubmit(this.handleFormSubmit) }
+      >
+        <div className={ `${this.className}-field-wrapper` }>
+          <Input
+            name='email'
+            component='input'
+            type='text'
+            placeholder='Email'
+          />
         </div>
-        <form
-          className={ `${this.className}-form` }
-          onSubmit={ handleSubmit(this.handleFormSubmit) }
-        >
-          <div className={ `${this.className}-field-wrapper` }>
-            <Input
-              name='email'
-              component='input'
-              type='text'
-              placeholder='Email'
-            />
-          </div>
-          <div className={ `${this.className}-field-wrapper` }>
-            <Input
-              name='password'
-              component='input'
-              type='password'
-              placeholder='password'
-            />
-          </div>
-          { this.renderErrorMessage() }
-          <div className={ `${this.className}-submit-wrapper` }>
-            <SubmitButton text='Sign in' />
-          </div>
-        </form>
-        <div className={ `${this.className}-footer` }>
-          { `Don't have an account? ` }
-          <Link to='/register'>{ `Register here` }</Link>
+        <div className={ `${this.className}-field-wrapper` }>
+          <Input
+            name='password'
+            component='input'
+            type='password'
+            placeholder='password'
+          />
         </div>
-      </div>
+        { this.renderErrorMessage() }
+        <div className={ `${this.className}-submit-wrapper` }>
+          <SubmitButton text='Sign in' />
+        </div>
+      </form>
     );
   }
 }
@@ -96,43 +80,34 @@ SignIn.propTypes = {
   errors: PropTypes.shape()
 };
 
-/**
- * Validates signin form.
- *
- * @param {OBject} form Object containing specified redux-form properies.
- *
- * @return {Object} Error message object used by redux-form.
- */
-function validateSignIn(form) {
-  const fields = {
-      email: {
-        type: 'text',
-        message: 'Please enter an email address.'
-      },
-      password: {
-        type: 'password',
-        message: 'Please enter a password.'
-      }
-    },
-    errors = {};
-
-  Object.keys(fields).forEach(attr => {
-    if (!form.hasOwnProperty(attr)) {
-      errors[attr] = fields[attr].message;
-    }
-  });
-
-  return errors;
-}
-
-// Had to wrapp with connect, reduxForm mapStateToProp isn't working...
-export default connect(state => {
-  return {
-    errorMessage: state.auth.errorMessage,
-    errors: state.form.sigin
-  };
-})(reduxForm({
+let form = reduxForm({
   form: 'signin',
   fields: ['email', 'password'],
-  validateSignIn
-})(SignIn));
+  validate(form) {
+    const fields = {
+        email: {
+          type: 'text',
+          message: 'Please enter an email address.'
+        },
+        password: {
+          type: 'password',
+          message: 'Please enter a password.'
+        }
+      },
+      errors = {};
+
+    Object.keys(fields).forEach(attr => {
+      if (!form.hasOwnProperty(attr)) {
+        errors[attr] = fields[attr].message;
+      }
+    });
+
+    return errors;
+  }
+});
+
+export default connect(state => {
+  return {
+    errorMessage: state.auth.errorMessage
+  };
+})(form(SignIn));
