@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 
 class Account extends Component {
   render() {
@@ -18,10 +17,6 @@ class Account extends Component {
         </div>
         <div className='account-view'>
           { this.props.children }
-        </div>
-        <div className={ `${className}-footer` }>
-          { `Don't have an account? ` }
-          <Link to='/register'>{ `Register here` }</Link>
         </div>
       </div>
     );

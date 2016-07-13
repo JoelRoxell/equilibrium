@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { actions } from 'flow/auth';
 import { Input, SubmitButton } from 'components/common/form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 /**
  * Sign in form component
@@ -66,6 +67,10 @@ class SignIn extends Component {
         { this.renderErrorMessage() }
         <div className={ `${this.className}-submit-wrapper` }>
           <SubmitButton text='Sign in' />
+        </div>
+        <div className={ `${this.className}-footer` }>
+          { `Don't have an account? ` }
+          <Link to='/account/register'>{ `Register here` }</Link>
         </div>
       </form>
     );
