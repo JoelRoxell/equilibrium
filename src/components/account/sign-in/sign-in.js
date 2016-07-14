@@ -4,6 +4,7 @@ import { actions } from 'flow/auth';
 import { Input, SubmitButton } from 'components/common/form';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { formValidator } from 'helpers';
 
 /**
  * Sign in form component
@@ -89,25 +90,26 @@ let form = reduxForm({
   form: 'signin',
   fields: ['email', 'password'],
   validate(form) {
-    const fields = {
-        email: {
-          type: 'text',
-          message: 'Please enter an email address.'
-        },
-        password: {
-          type: 'password',
-          message: 'Please enter a password.'
-        }
+    const fieldRules = {
+      email: {
+        type: 'text',
+        message: 'Please enter an email address.'
       },
-      errors = {};
-
-    Object.keys(fields).forEach(attr => {
-      if (!form.hasOwnProperty(attr)) {
-        errors[attr] = fields[attr].message;
+      password: {
+        type: 'password',
+        message: 'Please enter a password.',
+        rules: [
+          {
+            criteria: function(value) {
+              return value > 6;
+            },
+            message: 'Length must be greater than 6.'
+          }
+        ]
       }
-    });
+    };
 
-    return errors;
+    return formValidator(form, fieldRules);
   }
 });
 

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Input, SubmitButton } from 'components/common/form';
 import { Link } from 'react-router';
+import { formValidator } from 'helpers';
 
 class Register extends Component {
   constructor(props) {
@@ -69,7 +70,15 @@ let form = reduxForm({
   form: 'register',
   fields: ['email', 'password', 'confirmPassword'],
   validate(form) {
+    const fieldRules = {
+      email: {
+        type: 'text',
+        message: 'Email is a required field.'
+      }
+    };
     console.log('TODO: validate registration.');
+
+    return formValidator(form, fieldRules);
   }
 });
 
