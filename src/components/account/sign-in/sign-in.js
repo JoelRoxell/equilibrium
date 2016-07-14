@@ -100,8 +100,8 @@ let form = reduxForm({
         message: 'Please enter a password.',
         rules: [
           {
-            criteria: function(value) {
-              return value > 6;
+            rule: function(value) {
+              return value.length > 6;
             },
             message: 'Length must be greater than 6.'
           }

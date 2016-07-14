@@ -53,8 +53,8 @@ class Register extends Component {
             <SubmitButton text='Register' />
           </div>
           <div className={ `${this.className}-footer` }>
-            { `Don't have an account? ` }
-            <Link to='/account/register'>{ `Register here` }</Link>
+            { `Already have an account? ` }
+            <Link to='/account/signin'>{ `Sign in here` }</Link>
           </div>
         </form>
       </div>
@@ -74,9 +74,30 @@ let form = reduxForm({
       email: {
         type: 'text',
         message: 'Email is a required field.'
+      },
+      password: {
+        type: 'password',
+        rules: [
+          {
+            rule: function(value) {
+              return value.length > 6;
+            },
+            message: 'Plase enter a password longer than 5 characters.'
+          }
+        ]
+      },
+      confirmPassword: {
+        type: 'password',
+        rules: [
+          {
+            rule: function() {
+              return form.password === form.confirmPassword;
+            },
+            message: 'Confirm password must match password'
+          }
+        ]
       }
     };
-    console.log('TODO: validate registration.');
 
     return formValidator(form, fieldRules);
   }
