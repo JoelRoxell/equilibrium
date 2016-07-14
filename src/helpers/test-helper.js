@@ -12,7 +12,6 @@ global.window = global.document.defaultView;
 global.navigator = {
   userAgent: ''
 };
-
 const $ = _$(global.window);
 
 /**
@@ -43,6 +42,10 @@ $.fn.simulate = function(eventName, value) {
 
 // Set up chai-jquery
 chaiJquery(chai, chai.util, $);
+
+// Hook key functions on global scope to skip import in each spec file.
+global.renderComponent = renderComponent;
+global.expect = expect;
 
 export {
   renderComponent,

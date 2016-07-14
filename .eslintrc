@@ -15,7 +15,9 @@
     "__PROD__"     : false,
     "__DEBUG__"    : false,
     "__DEBUG_NEW_WINDOW__" : false,
-    "__BASENAME__" : false
+    "__BASENAME__" : false,
+    "renderComponent":  true,
+    "expect": true
   },
   "parser"  : "babel-eslint",
   "plugins" : [

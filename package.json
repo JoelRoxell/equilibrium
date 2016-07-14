@@ -10,8 +10,8 @@
     "clean": "rm -r ./build/*",
     "start": "webpack",
     "dev": "babel-node server/app.js",
-    "test": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive",
-    "test-watch": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --watch --watch-extensions jsx",
+    "test": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --require \"src/helpers/test-helper.js\"",
+    "test-watch": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --watch --watch-extensions jsx --require \"src/helpers/test-helper.js\"",
     "doc": "jsdoc2md \"./src/**/*.js\" > ./doc/api.md"
   },
   "author": "Joel Roxell",
