@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import RenderField from './field';
 import { Field } from 'redux-form';
+import style from './style/input';
 
 class Input extends Component {
   render() {
     return (
       <Field
         { ...this.props }
-        className='input-field'
+        className={ style.field }
         component={ RenderField }
       />
     );

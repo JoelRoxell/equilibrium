@@ -1,9 +1,11 @@
+@import '../../../../styles/global';
+
 .input
   display: flex
   flex-direction: column
   width: 100%
 
-  .input-field
+  .field
     width:100%
     padding-top: rem(12)
     padding-bottom: rem(12)
@@ -13,14 +15,17 @@
     font-size: rem(18)
     color: actionColor
 
-  .input-marker
+  .marker
     transition: width 0.3s
-    border-bottom: 1.5px  solid borderColor
+    border-bottom: 1.5px solid borderColor
     width: 0
 
     &.active
       width: 100%
 
-  .input-error-container
+  .marker:hover
+      color: red;
+
+  .error-container
     text-align: left
     color: errorColor

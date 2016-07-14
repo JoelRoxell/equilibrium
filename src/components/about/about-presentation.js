@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-
+import style from './style/about';
 /**
  * About presentational component
  *
@@ -11,7 +11,7 @@ import React, { PropTypes } from 'react';
  */
 const About = ({ title, description, bullets }) => {
   return (
-    <div className='about'>
+    <div className={ style.about }>
       <div className='about-title'>
         { title }
       </div>

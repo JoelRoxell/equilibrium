@@ -1,21 +1,20 @@
 import React, { Component, PropTypes } from 'react';
+import style from './style/account';
 
 class Account extends Component {
   render() {
-    let className = 'account';
-
     return (
-      <div className={ className }>
-        <div className={ `${className}-header` }>
-          <div className={ `${className}-welcome-text` }>
+      <div className={ style.account }>
+        <div className={ style.accountHeader }>
+          <div className={ style.accountWelcomeText }>
             { `Welcome` }
           </div>
-          <div className={ `${className}-title` }>
+          <div className={ style.accountTitle }>
             { `Sign in,` }
             <span> { `some more descriptive text.` }</span>
           </div>
         </div>
-        <div className='account-view'>
+        <div className={ style.accountView }>
           { this.props.children }
         </div>
       </div>

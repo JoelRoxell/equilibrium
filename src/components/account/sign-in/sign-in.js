@@ -5,6 +5,7 @@ import { Input, SubmitButton } from 'components/common/form';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { formValidator } from 'helpers';
+import style from './style/sign-in';
 
 /**
  * Sign in form component
@@ -13,7 +14,6 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
 
-    this.className = 'sign-in'; // Should be a static variable, jsdoc can't parse it atm.
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -34,7 +34,7 @@ class SignIn extends Component {
   renderErrorMessage() {
     if (this.props.errorMessage) {
       return (
-        <div className={ `${this.className}-error-wrapper` }>
+        <div className={ style.errorWrapper }>
           { this.props.errorMessage }
         </div>
       );
@@ -46,10 +46,10 @@ class SignIn extends Component {
 
     return (
       <form
-        className={ `${this.className}` }
+        className={ style.signIn }
         onSubmit={ handleSubmit(this.handleFormSubmit) }
       >
-        <div className={ `${this.className}-field-wrapper` }>
+        <div className={ style.fieldWrapper }>
           <Input
             name='email'
             component='input'
@@ -57,7 +57,7 @@ class SignIn extends Component {
             placeholder='Email'
           />
         </div>
-        <div className={ `${this.className}-field-wrapper` }>
+        <div className={ style.fieldWrapper }>
           <Input
             name='password'
             component='input'
@@ -66,10 +66,10 @@ class SignIn extends Component {
           />
         </div>
         { this.renderErrorMessage() }
-        <div className={ `${this.className}-submit-wrapper` }>
+        <div className={ style.submitWrapper }>
           <SubmitButton text='Sign in' />
         </div>
-        <div className={ `${this.className}-footer` }>
+        <div className={ style.footer }>
           { `Don't have an account? ` }
           <Link to='/account/register'>{ `Register here` }</Link>
         </div>

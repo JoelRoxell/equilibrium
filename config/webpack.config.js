@@ -5,7 +5,7 @@ import config from './config';
 import precss from 'precss';
 import autoprefixer from 'autoprefixer';
 import poststylus from 'poststylus';
-// import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const webpackConfig = {
   module: {},
@@ -56,11 +56,16 @@ webpackConfig.plugins = [
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
-  // new ExtractTextPlugin('[name].css', {
-  //   allChunks: true
-  // })
+  new webpack.NoErrorsPlugin(),
+  new ExtractTextPlugin('[name].css', {
+    allChunks: true
+  })
 ];
+
+webpackConfig.eslint = {
+  configFile: './.eslintrc',
+  emitWarning: true
+};
 
 // Pre-Loaders
 webpackConfig.module.preLoaders = [{
@@ -68,11 +73,6 @@ webpackConfig.module.preLoaders = [{
   loader: 'eslint',
   exclude: /node_modules/
 }];
-
-webpackConfig.eslint = {
-  configFile: './.eslintrc',
-  emitWarning: true
-};
 
 webpackConfig.module.loaders = [{
   test: /\.(js|jsx)$/,
@@ -108,7 +108,7 @@ webpackConfig.module.loaders = [{
 },
 {
   test: /\.styl$/,
-  loader: 'style-loader!css-loader!stylus-loader'
+  loader: 'style-loader!css-loader?camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus-loader' //  eslint-disable-line
 },
 {
   test: /\.html$/,

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { classNames } from 'helpers';
+import style from './style/input';
 
 class RenderField extends Component {
 
@@ -19,17 +20,17 @@ class RenderField extends Component {
 
   render() {
     return (
-      <div className='input'>
+      <div className={ style.input }>
         <input
           { ...this.props.input }
           onFocus={ this.onFocus }
           onBlur={ this.onBlur }
         />
-        <div className={ classNames('input-marker', {
-          active: this.state.active
+        <div className={ classNames(style.marker, {
+          [style.active]: this.state.active
         }) }>
         </div>
-        <div className='input-error-container'>
+        <div className={ style.errorContainer }>
           { this.props.touched && this.props.error && <span>{ this.props.error }</span> }
         </div>
       </div>

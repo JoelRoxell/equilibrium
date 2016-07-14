@@ -9,8 +9,6 @@ import {
 } from 'react-router';
 import thunk from 'redux-thunk';
 
-import style from 'styles/main' // eslint-disable-line
-
 import reducers from 'flow/reducers';
 
 import App from 'components/app';
