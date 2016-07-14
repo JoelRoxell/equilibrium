@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RenderField from './field';
+import RenderField from './render-field';
 import { Field } from 'redux-form';
 import style from './style/input';
 

@@ -18,6 +18,24 @@ class RenderField extends Component {
     this.setState({ active: false });
   }
 
+  renderError() {
+    let node;
+
+    if (Array.isArray(this.props.error)) {
+      node = this.props.error.map((error, i) => {
+        return (<span key={ i }>{ error }</span>);
+      });
+    } else {
+      node = (<span>{ this.props.error }</span>);
+    }
+
+    return (
+      <div className={ style.errorList }>
+        { node }
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={ style.input }>
@@ -31,7 +49,7 @@ class RenderField extends Component {
         }) }>
         </div>
         <div className={ style.errorContainer }>
-          { this.props.touched && this.props.error && <span>{ this.props.error }</span> }
+          { this.props.touched && this.props.error && this.renderError() }
         </div>
       </div>
     );
@@ -40,7 +58,10 @@ class RenderField extends Component {
 
 RenderField.propTypes = {
   touched: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
   active: PropTypes.bool,
   input: PropTypes.object
 };
