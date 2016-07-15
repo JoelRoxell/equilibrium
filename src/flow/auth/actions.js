@@ -4,7 +4,9 @@ import {
   SIGNING_IN,
   AUTH_USER,
   DEAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  REGISTRATION_ERROR,
+  CREATE_USER
 } from './types';
 
 /**
@@ -20,8 +22,6 @@ export function signInUser({ email, password }) {
       dispatch({ type: AUTH_USER });
       hashHistory.push('/about');
     }).catch(err => {
-      console.log(err);
-
       dispatch(authError(err.message));
     });
 
@@ -37,8 +37,17 @@ export function signInUser({ email, password }) {
  */
 export function createUser({ email, password }) {
   return function(dispatch) {
+    dispatch({
+      type: CREATE_USER, payload: {
+        email,
+        password
+      }
+    });
     firebaseService.createUser({ email, password }).then(res => {
-      console.log(res);
+      dispatch({ type: AUTH_USER });
+      hashHistory.push('/about');
+    }).catch(err => {
+      dispatch(registrationError(err.message));
     });
   };
 }
@@ -65,6 +74,20 @@ export function deauthUser() {
 export function authError(error) {
   return {
     type: AUTH_ERROR,
+    payload: error
+  };
+}
+
+/**
+ * [registrationError description]
+ *
+ * @param {String} error Error message.
+ *
+ * @return {Object} Action description.
+ */
+export function registrationError(error) {
+  return {
+    type: REGISTRATION_ERROR,
     payload: error
   };
 }

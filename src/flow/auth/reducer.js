@@ -2,7 +2,8 @@ import {
   SIGNING_IN,
   AUTH_USER,
   DEAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  REGISTRATION_ERROR
 } from './types';
 
 /**
@@ -32,6 +33,7 @@ export default function(state = {}, action) {
         loading: false
       };
     case AUTH_ERROR:
+    case REGISTRATION_ERROR:
       return {
         ...state,
         errorMessage: action.payload,
