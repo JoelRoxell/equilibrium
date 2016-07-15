@@ -17,7 +17,7 @@ import App from 'components/app';
  * e.g. about-route type becomes undefined on import and prevents rendering in router tree.
  * TODO: Evaluate a solution and/or find the issue created with es6 import.
  */
-import Account, { SignIn, Register } from 'components/account';
+import Account, { SignIn, Register, SignOut } from 'components/account';
 import About from 'components/about';
 
 import firebaseService from 'services/firebase';
@@ -37,6 +37,7 @@ render((
         <Route path='account' component={ Account }>
           <Route path='register' component={ Register } />
           <Route path='signin' component={ SignIn } />
+          <Route path='signout' component={ SignOut } />
         </Route>
         <Route path='signin' component={ SignIn } />
       </Route>

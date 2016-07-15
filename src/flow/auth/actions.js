@@ -3,6 +3,7 @@ import { hashHistory } from 'react-router';
 import {
   SIGNING_IN,
   AUTH_USER,
+  DEAUTH_USER,
   AUTH_ERROR
 } from './types';
 
@@ -30,9 +31,9 @@ export function signInUser({ email, password }) {
 
 /**
  * Create a new user
- * @param  {String} email    valid email
- * @param  {String} password passowrd >= 6 length
- * @return {function}        wrapped action creator
+ * @param  {String} email    valid email.
+ * @param  {String} password passowrd >= 6 length.
+ * @return {function}        wrapped action creator.
  */
 export function createUser({ email, password }) {
   return function(dispatch) {
@@ -43,9 +44,22 @@ export function createUser({ email, password }) {
 }
 
 /**
+ * Sign out user.
+ *
+ * @return {function} wrapped action creator.
+ */
+export function deauthUser() {
+  return function(dispatch) {
+    firebaseService.signOut();
+    dispatch({ type: DEAUTH_USER });
+  };
+}
+
+/**
  * Error action creator used to pass an error message to the user.
  *
  * @param  {String} error Message to be displayed.
+ *
  * @return {Object}       Error action object.
  */
 export function authError(error) {

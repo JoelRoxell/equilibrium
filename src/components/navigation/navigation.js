@@ -7,14 +7,14 @@ class Navigation extends Component {
   renderSignInOrOut() {
     let node = (
       <li className={ style.listItem }>
-        <Link to='/account/signin'>Sign out</Link>
+        <Link to='/account/signin'>Sign In</Link>
       </li>
     );
 
     if (this.props.authenticated) {
       node = (
         <li className={ style.listItem }>
-          <Link to='/account/signin'>Sign in</Link>
+          <Link to='/account/signout'>Sign out</Link>
         </li>
       );
     }
@@ -29,9 +29,7 @@ class Navigation extends Component {
           <li className={ style.listItem }>
             <Link to='/'>Home</Link>
           </li>
-          <li className={ style.listItem }>
-            <Link to='/account/signin'>Sign in</Link>
-          </li>
+          { this.renderSignInOrOut() }
           <li className={ style.listItem }>
             <Link to='/about'>About</Link>
           </li>

@@ -1,3 +1,4 @@
-export const SIGNING_IN = 'SIGNING_IN';
-export const AUTH_USER = 'AUTH_USER';
-export const AUTH_ERROR = 'AUTH_ERROR';
+export const SIGNING_IN = 'SIGNING_IN',
+  AUTH_USER = 'AUTH_USER',
+  DEAUTH_USER = 'DEAUTH_USER',
+  AUTH_ERROR = 'AUTH_ERROR';

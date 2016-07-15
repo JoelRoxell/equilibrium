@@ -1,7 +1,7 @@
 import {
   SIGNING_IN,
   AUTH_USER,
-  DE_AUTH,
+  DEAUTH_USER,
   AUTH_ERROR
 } from './types';
 
@@ -25,7 +25,7 @@ export default function(state = {}, action) {
         ...state,
         loading: true
       };
-    case DE_AUTH:
+    case DEAUTH_USER:
       return {
         ...state,
         authenticated: false,

@@ -101,7 +101,7 @@ let form = reduxForm({
         rules: [
           {
             rule: function(value) {
-              return value.length > 6;
+              return value.length >= 6;
             },
             message: 'Length must be greater than 6.'
           }
