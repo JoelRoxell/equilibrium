@@ -45,35 +45,37 @@ class SignIn extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form
-        className={ style.signIn }
-        onSubmit={ handleSubmit(this.handleFormSubmit) }
-      >
-        <div className={ style.fieldWrapper }>
-          <Input
-            name='email'
-            component='input'
-            type='text'
-            placeholder='Email'
-          />
-        </div>
-        <div className={ style.fieldWrapper }>
-          <Input
-            name='password'
-            component='input'
-            type='password'
-            placeholder='password'
-          />
-        </div>
-        { this.renderErrorMessage() }
-        <div className={ style.submitWrapper }>
-          <SubmitButton text='Sign in' />
-        </div>
+      <div className={ style.signIn }>
+        <form
+          className={ style.form }
+          onSubmit={ handleSubmit(this.handleFormSubmit) }
+        >
+          <div className={ style.fieldWrapper }>
+            <Input
+              name='email'
+              component='input'
+              type='text'
+              placeholder='Email'
+            />
+          </div>
+          <div className={ style.fieldWrapper }>
+            <Input
+              name='password'
+              component='input'
+              type='password'
+              placeholder='password'
+            />
+          </div>
+          { this.renderErrorMessage() }
+          <div className={ style.submitWrapper }>
+            <SubmitButton text='Sign in' />
+          </div>
+        </form>
         <div className={ style.footer }>
           { `Don't have an account? ` }
           <Link to='/account/register'>{ `Register here` }</Link>
         </div>
-      </form>
+      </div>
     );
   }
 }
