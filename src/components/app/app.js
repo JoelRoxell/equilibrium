@@ -4,13 +4,13 @@ import React, {
 } from 'react';
 import Title from 'components/title';
 import { Navigation } from 'components/navigation';
-import style from './style/app.styl';
+import style from './style/app';
 
 class App extends Component {
   render() {
     return (
       <div className={ style.app }>
-        <Title title={ 'TGIF - Thank God It\'s Friday' } />
+        <Title title={ 'equilibrium' } />
         <Navigation />
         <div className={ style.appView }>
           { this.props.children }

@@ -49,7 +49,7 @@ webpackConfig.plugins = [
     template: './src/index.html', // Load a custom template,
     hash: false,
     filename: 'index.html',
-    inject: 'body', // Inject all scripts into the body
+    inject: 'body', // Inject scripts into the body
     minify: {
       collapseWhitespace: false
     }
@@ -115,6 +115,11 @@ webpackConfig.module.loaders = [{
   test: /\.html$/,
   exclude: /node_modules/,
   loader: 'raw'
+},
+{
+  test: /.(png|jpg|ttf|eot)$/,
+  exclude: /node_modules/,
+  loader: 'url-loader?limit=10000'
 }];
 
 // Define proccesses that should be run

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import style from './style/navigation.styl';
+import style from './style/navigation';
 
 class Navigation extends Component {
   renderSignInOrOut() {
@@ -26,9 +26,6 @@ class Navigation extends Component {
     return (
       <nav className={ style.navigation }>
         <ul className={ style.list }>
-          <li className={ style.listItem }>
-            <Link to='/'>Home</Link>
-          </li>
           { this.renderSignInOrOut() }
           <li className={ style.listItem }>
             <Link to='/about'>About</Link>

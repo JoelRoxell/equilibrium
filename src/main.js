@@ -13,6 +13,8 @@ import reducers from 'flow/reducers';
 
 import App from 'components/app';
 
+import font from 'styles/global/fonts'; // eslint-disable-line
+
 /* Currently routes can't be imported correctly,
  * e.g. about-route type becomes undefined on import and prevents rendering in router tree.
  * TODO: Evaluate a solution and/or find the issue created with es6 import.

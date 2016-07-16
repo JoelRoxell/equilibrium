@@ -1,5 +1,9 @@
 @import '../../../styles/global';
 
+* {
+  font-family: fontFamilyThin
+}
+
 html
   height: 100%;
   width: 100%;
@@ -25,17 +29,20 @@ body
     display: flex
     flex-direction: column
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: fontSecondaryColor;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: fontSecondaryColor;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: fontSecondaryColor;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: fontSecondaryColor;
-}
+::-webkit-input-placeholder
+    /* WebKit, Blink, Edge */
+    color: fontSecondaryColor
+
+:-moz-placeholder
+  /* Mozilla Firefox 4 to 18 */
+  color: fontSecondaryColor;
+  opacity:  1
+
+::-moz-placeholder
+  /* Mozilla Firefox 19+ */
+  color: fontSecondaryColor;
+  opacity:  1;
+
+:-ms-input-placeholder
+  /* Internet Explorer 10-11 */
+  color: fontSecondaryColor

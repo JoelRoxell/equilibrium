@@ -3,14 +3,8 @@ import * as types from './actions';
 const initalState = {
   about: {
     title: 'About this project',
-    description: 'Description about this project',
-    bullets: [
-      'BulletOne',
-      'BulletTwo',
-      'BulletThree',
-      'BulletFour',
-      'BulletFive'
-    ]
+    description: `A condition in which all acting influences are canceled by others,
+      resulting in a stable, balanced, or unchanging system.`
   }
 };
 
