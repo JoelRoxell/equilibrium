@@ -1,31 +1,34 @@
-@import '../../../styles/global';
+@import '../../../styles/global'
 
 * {
   font-family: fontFamilyThin
 }
 
 html
-  height: 100%;
+  height: 100%
   width: 100%;
   font-size: remBase;
 
 body
-  background: linear-gradient(to bottom right, baseToneColor, baseColor);
+  background: linear-gradient(to bottom right, baseToneColor, baseColor)
   font-size: h1Size
   font-family: sans-serif
-  color: fontColor;
+  color: fontColor
   margin: 0
   padding: 0
   height: 100%;
+
+:global(.app)
+  height: 100%
 
 .app
   display: flex
   flex-direction: column
   text-align: center
-  height: 100%;
+  height: 100%
 
   .appView
-    height: 100%;
+    height: 100%
     display: flex
     flex-direction: column
 
@@ -35,13 +38,13 @@ body
 
 :-moz-placeholder
   /* Mozilla Firefox 4 to 18 */
-  color: fontSecondaryColor;
+  color: fontSecondaryColor
   opacity:  1
 
 ::-moz-placeholder
   /* Mozilla Firefox 19+ */
-  color: fontSecondaryColor;
-  opacity:  1;
+  color: fontSecondaryColor
+  opacity:  1
 
 :-ms-input-placeholder
   /* Internet Explorer 10-11 */

@@ -1,3 +1,4 @@
+/* Pixel to rem */
 rem(val)
   u = unit(val)
 
@@ -5,3 +6,9 @@ rem(val)
     return  unit(val / remBase, 'rem')
   else
     return unit(val / remBase, 'rem')
+
+/* Screen */
+lesserThan(device)
+  condition = '(max-width: %s)' % device
+  @media condition
+    { block }
