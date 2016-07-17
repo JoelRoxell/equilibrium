@@ -18,7 +18,7 @@ const webpackConfig = {
     alias: {
       components: `${config.dir_src}/components`,
       containers: `${config.dir_src}/containers`,
-      config: `${config.dir_src}/config`,
+      config: `${config.dir_src}/../config`,
       styles: `${config.dir_src}/styles`,
       flow: `${config.dir_src}/flow`,
       services: `${config.dir_src}/services`,
