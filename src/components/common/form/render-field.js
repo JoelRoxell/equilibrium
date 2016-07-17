@@ -6,15 +6,17 @@ class RenderField extends Component {
 
   constructor(props) {
     super(props);
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
 
     this.state = { active: false };
   }
 
-  onFocus = () => {
+  onFocus() {
     this.setState({ active: true });
   }
 
-  onBlur = () => {
+  onBlur() {
     this.setState({ active: false });
   }
 

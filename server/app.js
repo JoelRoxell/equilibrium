@@ -33,6 +33,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.use('/', express.static(path.resolve(__dirname, '../build')));
+app.use('/doc', express.static(path.resolve(__dirname, '../doc')));
 
 const server = app.listen(3000, function () {
   let port = server.address().port;

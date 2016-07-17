@@ -17,7 +17,8 @@ const $ = _$(global.window);
 /**
  * Render component helper method used to render components into the created cli-DOM.
  *
- * @param  {Component} ComponentClass React comonent
+ * @param  {Component} ComponentClass React component.
+ *
  * @return {DOMElement} Wrapped jquery element node.
  */
 function renderComponent(ComponentClass) {
