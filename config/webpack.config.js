@@ -111,7 +111,7 @@ webpackConfig.module.loaders = [{
 {
   test: /\.styl$/,
   exclude: /node_modules/,
-  loader: 'style-loader!css-loader?camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus-loader' //  eslint-disable-line
+  loader: 'style-loader!css-loader?camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus-loader!prepend-style-loader?prepend=[src/styles/global/variables, src/styles/global/mixins]' //  eslint-disable-line
 },
 {
   test: /\.html$/,
