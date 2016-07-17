@@ -17,7 +17,7 @@ class Register extends Component {
   /**
    * Renders error messages originating from server side.
    *
-   * @return {Compnent} Html block.
+   * @return {ReactElement} Html block.
    */
   renderErrorMessage() {
     if (this.props.errorMessage) {
@@ -75,7 +75,9 @@ class Register extends Component {
         </form>
         <div className={ style.footer }>
           { `Already have an account? ` }
-          <Link to='/account/signin'>{ `Sign in here` }</Link>
+          <Link to='/account/signin'>
+            { `Sign in here` }
+          </Link>
         </div>
       </div>
     );
