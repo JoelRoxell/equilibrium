@@ -10,9 +10,9 @@ const initalState = {
 
 /**
  * General app reducer
- * @param  {Object} state  initalState
- * @param  {Object} action Redux action descriptor
- * @return {Object}        next state
+ * @param  {Object} state  Inital state.
+ * @param  {Object} action Redux action descriptor.
+ * @return {Object}        Next state.
  */
 function app(state = initalState, action = {}) {
   switch (action.type) {

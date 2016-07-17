@@ -10,7 +10,7 @@
 
 <dl>
 <dt><a href="#About">About(title, description, bullets)</a> ⇒ <code>StatelessComponent</code></dt>
-<dd><p>About presentational component</p>
+<dd><p>About presentational component.</p>
 </dd>
 <dt><a href="#app">app(state, action)</a> ⇒ <code>Object</code></dt>
 <dd><p>General app reducer</p>
@@ -19,25 +19,25 @@
 <dd><p>Sign in user action creator</p>
 </dd>
 <dt><a href="#createUser">createUser(email, password)</a> ⇒ <code>function</code></dt>
-<dd><p>Create a new user</p>
+<dd><p>Create a new user.</p>
 </dd>
 <dt><a href="#deauthUser">deauthUser()</a> ⇒ <code>function</code></dt>
 <dd><p>Sign out user.</p>
 </dd>
 <dt><a href="#authError">authError(error)</a> ⇒ <code>Object</code></dt>
-<dd><p>Error action creator used to pass an error message to the user.</p>
+<dd><p>Pass an error message to the user.</p>
 </dd>
 <dt><a href="#registrationError">registrationError(error)</a> ⇒ <code>Object</code></dt>
-<dd><p>[registrationError description]</p>
+<dd><p>Pass registration error to user.</p>
 </dd>
 <dt><a href="#classNames">classNames()</a> ⇒ <code>string</code></dt>
 <dd><p>Returnes a compried className string of passed arguments</p>
 </dd>
 <dt><a href="#validate">validate(form, fields)</a> ⇒ <code>Object</code></dt>
-<dd><p>Helper function that that validates react-reduct forms.</p>
+<dd><p>Validates react-redux forms.</p>
 </dd>
 <dt><a href="#renderComponent">renderComponent(ComponentClass)</a> ⇒ <code>DOMElement</code></dt>
-<dd><p>Render component helper method used to render components into the created cli-DOM.</p>
+<dd><p>Render component helper method, used to render components into the created cli-DOM.</p>
 </dd>
 </dl>
 
@@ -73,16 +73,16 @@ Renders error message passed from server.
 <a name="About"></a>
 
 ## About(title, description, bullets) ⇒ <code>StatelessComponent</code>
-About presentational component
+About presentational component.
 
 **Kind**: global function  
-**Returns**: <code>StatelessComponent</code> - dumb  
+**Returns**: <code>StatelessComponent</code> - React component.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| title | <code>String</code> | cool title |
-| description | <code>String</code> | antoher desc |
-| bullets | <code>Array.&lt;String&gt;</code> | array of string bullets |
+| title | <code>String</code> | Application title. |
+| description | <code>String</code> | Breif application description. |
+| bullets | <code>Array.&lt;String&gt;</code> | Array of string bullets. |
 
 <a name="app"></a>
 
@@ -90,12 +90,12 @@ About presentational component
 General app reducer
 
 **Kind**: global function  
-**Returns**: <code>Object</code> - next state  
+**Returns**: <code>Object</code> - Next state.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| state | <code>Object</code> | initalState |
-| action | <code>Object</code> | Redux action descriptor |
+| state | <code>Object</code> | Inital state. |
+| action | <code>Object</code> | Redux action descriptor. |
 
 <a name="signInUser"></a>
 
@@ -103,25 +103,25 @@ General app reducer
 Sign in user action creator
 
 **Kind**: global function  
-**Returns**: <code>function</code> - wrapped action creator  
+**Returns**: <code>function</code> - Wrapped action creator.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| email | <code>String</code> | user email |
-| password | <code>String</code> | user passowrd |
+| email | <code>String</code> | User email. |
+| password | <code>String</code> | User password. |
 
 <a name="createUser"></a>
 
 ## createUser(email, password) ⇒ <code>function</code>
-Create a new user
+Create a new user.
 
 **Kind**: global function  
-**Returns**: <code>function</code> - wrapped action creator.  
+**Returns**: <code>function</code> - Wrapped action creator.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| email | <code>String</code> | valid email. |
-| password | <code>String</code> | passowrd >= 6 length. |
+| email | <code>String</code> | Valid email. |
+| password | <code>String</code> | Password >= 6 length. |
 
 <a name="deauthUser"></a>
 
@@ -129,11 +129,11 @@ Create a new user
 Sign out user.
 
 **Kind**: global function  
-**Returns**: <code>function</code> - wrapped action creator.  
+**Returns**: <code>function</code> - Wrapped action creator.  
 <a name="authError"></a>
 
 ## authError(error) ⇒ <code>Object</code>
-Error action creator used to pass an error message to the user.
+Pass an error message to the user.
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Error action object.  
@@ -145,10 +145,10 @@ Error action creator used to pass an error message to the user.
 <a name="registrationError"></a>
 
 ## registrationError(error) ⇒ <code>Object</code>
-[registrationError description]
+Pass registration error to user.
 
 **Kind**: global function  
-**Returns**: <code>Object</code> - Action description.  
+**Returns**: <code>Object</code> - Error action object.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -160,11 +160,11 @@ Error action creator used to pass an error message to the user.
 Returnes a compried className string of passed arguments
 
 **Kind**: global function  
-**Returns**: <code>string</code> - Comprsed class name string  
+**Returns**: <code>string</code> - Comprised classname string  
 <a name="validate"></a>
 
 ## validate(form, fields) ⇒ <code>Object</code>
-Helper function that that validates react-reduct forms.
+Validates react-redux forms.
 
 **Kind**: global function  
 **Returns**: <code>Object</code> - Error specification.  
@@ -172,17 +172,17 @@ Helper function that that validates react-reduct forms.
 | Param | Type | Description |
 | --- | --- | --- |
 | form | <code>Object</code> | Representation of the form. |
-| fields | <code>Object</code> | A Object specifi. |
+| fields | <code>Object</code> | A Object specific. |
 
 <a name="renderComponent"></a>
 
 ## renderComponent(ComponentClass) ⇒ <code>DOMElement</code>
-Render component helper method used to render components into the created cli-DOM.
+Render component helper method, used to render components into the created cli-DOM.
 
 **Kind**: global function  
 **Returns**: <code>DOMElement</code> - Wrapped jquery element node.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ComponentClass | <code>Component</code> | React comonent |
+| ComponentClass | <code>Component</code> | React component. |
 

@@ -1,7 +1,7 @@
 /**
  * Returnes a compried className string of passed arguments
  *
- * @return {string} Comprsed class name string
+ * @return {string} Comprised classname string
  */
 function classNames() {
   let className = '';

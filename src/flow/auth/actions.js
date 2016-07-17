@@ -12,9 +12,9 @@ import {
 /**
  * Sign in user action creator
  *
- * @param  {String} email     user email
- * @param  {String} password  user passowrd
- * @return {function}         wrapped action creator
+ * @param  {String} email     User email.
+ * @param  {String} password  User password.
+ * @return {function}         Wrapped action creator.
  */
 export function signInUser({ email, password }) {
   return function(dispatch) {
@@ -30,10 +30,12 @@ export function signInUser({ email, password }) {
 }
 
 /**
- * Create a new user
- * @param  {String} email    valid email.
- * @param  {String} password passowrd >= 6 length.
- * @return {function}        wrapped action creator.
+ * Create a new user.
+ *
+ * @param  {String} email    Valid email.
+ * @param  {String} password Password >= 6 length.
+ *
+ * @return {function} Wrapped action creator.
  */
 export function createUser({ email, password }) {
   return function(dispatch) {
@@ -55,7 +57,7 @@ export function createUser({ email, password }) {
 /**
  * Sign out user.
  *
- * @return {function} wrapped action creator.
+ * @return {function} Wrapped action creator.
  */
 export function deauthUser() {
   return function(dispatch) {
@@ -65,11 +67,11 @@ export function deauthUser() {
 }
 
 /**
- * Error action creator used to pass an error message to the user.
+ * Pass an error message to the user.
  *
  * @param  {String} error Message to be displayed.
  *
- * @return {Object}       Error action object.
+ * @return {Object} Error action object.
  */
 export function authError(error) {
   return {
@@ -79,11 +81,11 @@ export function authError(error) {
 }
 
 /**
- * [registrationError description]
+ * Pass registration error to user.
  *
  * @param {String} error Error message.
  *
- * @return {Object} Action description.
+ * @return {Object} Error action object.
  */
 export function registrationError(error) {
   return {

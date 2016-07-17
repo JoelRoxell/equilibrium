@@ -1,8 +1,8 @@
 /**
- * Helper function that that validates react-reduct forms.
+ * Validates react-redux forms.
  *
  * @param {Object} form   Representation of the form.
- * @param {Object} fields A Object specifi.
+ * @param {Object} fields A Object specific.
  *
  * @return {Object} Error specification.
  */

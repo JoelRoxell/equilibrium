@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import style from './style/about';
 /**
- * About presentational component
+ * About presentational component.
  *
- * @param  {String} title cool title
- * @param  {String} description antoher desc
- * @param  {Array<String>}  bullets array of string bullets
+ * @param  {String} title Application title.
+ * @param  {String} description Breif application description.
+ * @param  {Array<String>}  bullets Array of string bullets.
  *
- * @return {StatelessComponent} dumb
+ * @return {StatelessComponent} React component.
  */
 const About = ({ title, description, bullets }) => {
   return (
