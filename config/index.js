@@ -1,7 +1,9 @@
-import config from './config'
-import webpackConfig from './webpack.config'
+import config from './config';
+import banner from './banner';
+import webpackConfig from './webpack.config';
 
 export default {
   config,
-  webpackConfig
-}
+  webpackConfig,
+  banner
+};

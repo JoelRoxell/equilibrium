@@ -1,11 +1,11 @@
 # Equilibrium
-An initial prototyping project based on some of the latest web technologies to date. It’s purpose is to swiftly allow new ideas to quickly become MVPs, equilibrium provides an initial setup for a pretty advanced SPA. It provides initial component, folder, and testing -structures. The main goal of this project is to provide an efficient and stable "SPA-starting point”, which also is capable of growing into a more complex system.
+An initial prototyping project based on some of the latest web technologies to date. It’s purpose is to swiftly allow new ideas to quickly become MVPs, equilibrium also provides an initial setup for a fairly advanced SPA. It provides initial component, folder, and testing -structures. The main goal of this project is to provide an efficient and stable "SPA-starting point”, which also is capable of growing into a more complex system.
 
 
 ## Core Technologies
+- CSS modules
 - Express
 - Flow
-- CSS modules
 - PostCSS
 - React
 - React-router

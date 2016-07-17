@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from './config';
+import banner from './banner';
 import precss from 'precss';
 import autoprefixer from 'autoprefixer';
 import poststylus from 'poststylus';
@@ -25,7 +26,7 @@ const webpackConfig = {
       routes: `${config.dir_src}/routes`
     },
     extensions: ['', '.js', '.jsx', '.json', '.styl'],
-    modulesDirectories: ['node_modules', 'vendor']
+    modulesDirectories: ['node_modules']
   }
 };
 
@@ -54,6 +55,7 @@ webpackConfig.plugins = [
       collapseWhitespace: false
     }
   }),
+  new webpack.BannerPlugin(banner),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
