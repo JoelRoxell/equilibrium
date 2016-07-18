@@ -29,6 +29,7 @@
     "flow-vars/use-flow-type": 1,
     "space-before-function-paren": 0,
     "quotes": [2, "single", {"allowTemplateLiterals": true}],
+    "jsx-quotes": ["error", "prefer-single"],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": false,
       "arraysInObjects": false
