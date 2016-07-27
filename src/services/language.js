@@ -58,10 +58,10 @@ class LanguageService {
   }
 
   _setLanguageFromStore = () => {
-    const app = store.getState().app;
+    const appState = store.getState().app;
 
-    if (app.language !== this.language) {
-      this.language = app.language;
+    if (appState.language && appState.language !== this.language) {
+      this.language = appState.language;
     }
   };
 

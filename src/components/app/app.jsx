@@ -9,7 +9,6 @@ import { Navigation } from 'components/navigation';
 
 class App extends Component {
   componentWillMount() {
-    console.log(STRING.APP.TITLE);
     STRING.use(this);
   }
 
