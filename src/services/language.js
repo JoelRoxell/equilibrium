@@ -20,8 +20,6 @@ class LanguageService {
     store.subscribe(this._setLanguageFromStore);
   }
 
-  static defaultLanguage = 'en';
-
   /**
    * Returns the current country code.
    *
@@ -66,8 +64,8 @@ class LanguageService {
   };
 
   /**
-   * _getLanguageCodeHierarchy Create array of language codes based on current language code..
-   * Example: If  current language code is 'sv_SE', return value would be `['en', 'sv', 'sv_SE]`
+   * _getLanguageCodeHierarchy Create array of language codes based on current language code.
+   * Example: If current language code is 'sv_SE', return value would be `['en', 'sv', 'sv_SE]`
    * @return {array} Array of language codes
    */
   _getLanguageCodeHierarchy() {
@@ -152,6 +150,8 @@ class LanguageService {
     }
   }
 }
+
+LanguageService.defaultLanguage = 'en';
 
 const languageService = new LanguageService();
 
