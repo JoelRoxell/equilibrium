@@ -25,6 +25,29 @@ Everything that concerns the component is located in the same folder, besides co
 └── index                 # Should export each component building-block(presentational, container, and combined).
 ```
 
+### Localization
+The app supports localization through the use of the language service. Translations are added to `src/lang`, where the language files follows the naming pattern `language[_territory]`, i.e. `sv_SE`, `sv`, `en_UK`, etc.
+The language files are exposed through the file `src/lang/index.js`.
+
+#### Usage example
+```js
+import React, { Component } from 'react';
+import STRING from 'services/language';
+
+class MyComponent extends Component {
+  componentWillMount() {
+    // Register listener. Component will automatically be re-rendered when language changes,
+    // as well as automatically unsubscribing when the component will unmount.
+    STRING.use(this);
+  }
+
+  render() {
+    // All hard-coded strings in the component are fetched from the `STRING` object
+    return <h1>{ STRING.TITLE }</h1>;
+  }
+}
+```
+
 ## Quick Start
 
 Install dependencies:

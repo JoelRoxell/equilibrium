@@ -2,14 +2,20 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import STRING from 'services/language';
+
 import Title from 'components/title';
 import { Navigation } from 'components/navigation';
 
 class App extends Component {
+  componentWillMount() {
+    STRING.use(this);
+  }
+
   render() {
     return (
       <div className='app'>
-        <Title title={ 'TGIF - Thank god it\'s friday' } />
+        <Title title={ STRING.APP.TITLE } />
         <Navigation />
         <div>
           { this.props.children }

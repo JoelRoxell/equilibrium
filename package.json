@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -r ./dist/*",
-    "start": "webpack",
+    "start": "babel-node node_modules/webpack/bin/webpack.js --config config/webpack.config.js --progress",
     "dev": "babel-node server/app.js",
     "test": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive",
     "test-watch": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --watch --watch-extensions jsx"
@@ -13,7 +13,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "deep-extend": "^0.4.1",
     "history": "^3.0.0",
+    "kleio": "^0.3.7",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.0.0",
@@ -58,6 +60,7 @@
     "html-webpack-plugin": "^2.9.0",
     "jquery": "^3.0.0",
     "jsdom": "^9.2.1",
+    "json-loader": "^0.5.4",
     "postcss-loader": "^0.9.0",
     "poststylus": "^0.2.3",
     "precss": "^1.4.0",
