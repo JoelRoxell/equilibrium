@@ -1,6 +1,9 @@
-// var webpackConfig = require('./config/webpack.config.js');
+var webpackConfig = require('./config/webpack.config.js');
+var dirConfig = require('./config/config');
+
 //
-// webpackConfig.entry = {};
+webpackConfig.entry = {};
+webpackConfig.devtool = 'inline-source-map';
 //
 // var karmaConfig = function(config) {
 //   config.set({
@@ -35,28 +38,36 @@
 
 var webpack = require('webpack');
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
-    browsers: [ 'Chrome' ], //run in Chrome
-    singleRun: true, //just run once by default
-    frameworks: [ 'mocha' ], //use the mocha test framework
+    browsers: ['Chrome'], // run in Chrome
+
+    singleRun: true, // just run once by default
+
+    frameworks: ['mocha'], // use the mocha test framework
+
     files: [
-      './tests.webpack.js' //just load this file
+      'src/components/title/test/mount-spec.js' // just load this file
     ],
+
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-chai',
+      'karma-mocha',
+      'karma-sourcemap-loader',
+      'karma-webpack'
+    ],
+
     preprocessors: {
-      'tests.webpack.js': [ 'webpack' ] //preprocess with webpack and our sourcemap loader
+      'src/components/title/test/mount-spec.js': ['webpack']
     },
-    reporters: [ 'dots' ], //report results in this format
-    webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
-      module: {
-        loaders: [
-          { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
-        ]
-      }
-    },
+
+    reporters: ['dots'], // report results in this format
+
+    webpack: webpackConfig,
+
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // please don't spam the console when running in karma!
     }
   });
 };

@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 const config = {
   env: process.env.NODE_ENV || 'development',
@@ -14,4 +14,4 @@ const config = {
   server_port: 3000
 }
 
-export default config
+module.exports = config;

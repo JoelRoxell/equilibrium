@@ -7,8 +7,8 @@ const poststylus = require('poststylus');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var babel = require('babel-core');
 
-const config = require('./config');
-const banner = require('./banner');
+const config = require('../config/config');
+const banner = require('../config/banner');
 
 const webpackConfig = {
   module: {},
@@ -35,13 +35,13 @@ const webpackConfig = {
 // Entry Points
 webpackConfig.entry = [
   'webpack-hot-middleware/client?path=/__webpack_hmr',
-  `${config.base_path}/${config.dir_src}/main.js`
+  `${config.base_path}/${config.dir_src}/test.js`
 ];
 
 // Bundle Output
 webpackConfig.output = {
   path: path.join(config.base_path, 'build'),
-  filename: 'bundle.js',
+  filename: 'test.bundle.js',
   publicPath: '/assets/',
   chunkFilename: '[id].js'
 };
