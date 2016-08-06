@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
- import reducers from 'flow/reducers';
+import reducers from 'flow/reducers';
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -19,18 +19,19 @@ const store = createStore(reducers, compose(
  *
  * @param {Component} ComponentClass React component.
  * @param {DOMElement} container DOM element used to mount the react component.
+ * @param {Object} props Component properties
  *
  * @return {DOMElement} Wrapped jquery element node.
  */
-function renderComponent(Component, container, props) {
+function renderComponent(ComponentClass, container, props) {
   const ref = ReactDOM.render(
     <Provider store={ store } >
-      <Component />
+      <ComponentClass { ...props } />
     </Provider>,
     container
   );
 
-  return ref; // produces HTML
+  return ReactDOM.findDOMNode(ref);
 }
 
 /**

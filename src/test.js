@@ -1,32 +1,23 @@
-import testHelper from 'helpers/test-helper';
-import App from 'components/app';
+import { expect } from 'helpers/test-helper'; // eslint-disable-line
+
+import App, { styles } from 'components/app';
+import Title from 'components/title';
 
 describe('#Initial tests setup', function() {
-  it('-Returnes "hello world"', function() {
-    expect(hello()).to.equal('hello world');
+  it('-Render App component', function() {
+    const container = document.getElementById('app'),
+      _node = renderComponent(App, container, {}),
+      className = styles.app;
+
+    expect(_node.className).to.equal(className);
   });
 
-  it('-Should be another test', function () {
-    expect(true).to.equal(true);
-  });
+  it('-Render Title', function() {
+    const container = document.getElementById('app'),
+      _node = renderComponent(Title, container, {
+        title: 'App Title'
+      });
 
-  it('Create a new feature test(async)', function() {
-    let x = 10;
-
-    expect(x).to.equal(10);
-  });
-
-  it('Should render App component', function() {
-    const container = document.getElementById('app');
-
-    let _node = renderComponent(App, container, {});
-
-    console.log(_node, container);
+    expect(_node.innerText).to.equal('App Title');
   });
 });
-
-function hello() {
-  return 'hello world';
-}
-
-console.log('Loaded test scripts');
