@@ -22,9 +22,6 @@ import font from 'styles/global/fonts'; // eslint-disable-line
 import Account, { SignIn, Register, SignOut } from 'components/account';
 import About from 'components/about';
 
-import firebaseService from 'services/firebase';
-window.firebase = firebaseService;
-
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f

@@ -9,6 +9,7 @@ var babel = require('babel-core');
 
 const config = require('../config/config');
 const banner = require('../config/banner');
+const firebase = require('firebase');
 
 const webpackConfig = {
   module: {},

@@ -2,18 +2,35 @@ import TestUtils from 'react-addons-test-utils';
 import ReactDOM from 'react-dom';
 import { expect } from 'chai';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
+ import reducers from 'flow/reducers';
+
+const store = createStore(reducers, compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+);
 
 /**
  * Render component helper method, used to render components into the created cli-DOM.
  *
- * @param  {Component} ComponentClass React component.
+ * @param {Component} ComponentClass React component.
+ * @param {DOMElement} container DOM element used to mount the react component.
  *
  * @return {DOMElement} Wrapped jquery element node.
  */
-function renderComponent(ComponentClass) {
-  const domRef = TestUtils.renderIntoDocument(<ComponentClass />);
+function renderComponent(Component, container, props) {
+  const ref = ReactDOM.render(
+    <Provider store={ store } >
+      <Component />
+    </Provider>,
+    container
+  );
 
-  return ReactDOM.findDOMNode(domRef); // produces HTML
+  return ref; // produces HTML
 }
 
 /**

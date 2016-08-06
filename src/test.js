@@ -1,6 +1,5 @@
 import testHelper from 'helpers/test-helper';
-
-console.log(renderComponent);
+import App from 'components/app';
 
 describe('#Initial tests setup', function() {
   it('-Returnes "hello world"', function() {
@@ -9,6 +8,20 @@ describe('#Initial tests setup', function() {
 
   it('-Should be another test', function () {
     expect(true).to.equal(true);
+  });
+
+  it('Create a new feature test(async)', function() {
+    let x = 10;
+
+    expect(x).to.equal(10);
+  });
+
+  it('Should render App component', function() {
+    const container = document.getElementById('app');
+
+    let _node = renderComponent(App, container, {});
+
+    console.log(_node, container);
   });
 });
 
