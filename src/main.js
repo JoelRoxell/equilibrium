@@ -22,11 +22,25 @@ import font from 'styles/global/fonts'; // eslint-disable-line
 import Account, { SignIn, Register, SignOut } from 'components/account';
 import About from 'components/about';
 
-const store = createStore(reducers, compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
-);
+function configureStore() {
+  const store = createStore(reducers, compose(
+      applyMiddleware(thunk),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
+  );
+
+  if (module.hot) {
+    module.hot.accept('./flow/reducers', () => {
+      const nextRootReducer = require('./flow/reducers/index.js');
+
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  return store;
+}
+
+const store = configureStore();
 
 render((
   <Provider store={ store }>

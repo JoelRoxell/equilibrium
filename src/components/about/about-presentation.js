@@ -12,17 +12,17 @@ import style from './style/about';
 const About = ({ title, description, bullets }) => {
   return (
     <div className={ style.about }>
-      <div className='about-title'>
+      <div className={ style.title }>
         { title }
       </div>
-      <div className='about-description'>
+      <div className={ style.description }>
         { description }
       </div>
-      <div className='about-bullet-wrapper'>
+      <div className={ style.bulletWrapper }>
         { bullets.map((bullet, i) => {
           return (
             <p
-              className='about-bullet'
+              className={ style.bullet }
               key={ i }
             >
               { bullet }
