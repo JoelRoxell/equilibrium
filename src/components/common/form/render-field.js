@@ -45,6 +45,8 @@ class RenderField extends Component {
           { ...this.props.input }
           onFocus={ this.onFocus }
           onBlur={ this.onBlur }
+          className={ style.field }
+          placeholder={ this.props.placeholder }
         />
         <div className={ classNames(style.marker, {
           [style.active]: this.state.active
@@ -65,7 +67,8 @@ RenderField.propTypes = {
     PropTypes.array
   ]),
   active: PropTypes.bool,
-  input: PropTypes.object
+  input: PropTypes.object,
+  placeholder: PropTypes.string
 };
 
 export default RenderField;
