@@ -68,7 +68,7 @@ npm run dev
 Use `npm run test` to run the test suite once, `npm test-watch` to run defined specs on save.
 ```
 export NODE_ENV=test
-npm run test-watch
+npm run dev
 ```
 ### Example
 ```javascript
