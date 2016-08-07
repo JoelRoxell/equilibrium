@@ -1,5 +1,5 @@
 import _App from './app';
-import _styles from './style/app';
+import _style from './style/app';
 
 export default _App;
-export const styles = _styles;
+export const style = _style;

@@ -25,4 +25,4 @@ compiler.run((err, stats) => {
   console.log(webpackConfig.output.path)
   debug('-- Webpack compile completed --')
   debug('Compiler finished.')
-})
+});

@@ -1,14 +1,11 @@
-/* eslint no-unused-expressions: 0 */
-import App from 'components/app';
+import App, { style } from 'components/app';
 
-describe('App', () => {
-  let component;
+describe('#App', () => {
+  it('-Render App component', function() {
+    const container = document.getElementById('app'),
+      node = renderComponent(App, container, {}),
+      className = style.app;
 
-  beforeEach(() => {
-    component = renderComponent(App);
-  });
-
-  it('Initialize the application', () => {
-    expect(component.attr('class')).to.eq('app');
+    expect(node.className).to.equal(className);
   });
 });

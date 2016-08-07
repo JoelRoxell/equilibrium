@@ -1,14 +1,14 @@
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
-const poststylus = require('poststylus');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var babel = require('babel-core');
 
-const config = require('./config');
-const banner = require('./banner');
+const webpack = require('webpack'),
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  precss = require('precss'),
+  autoprefixer = require('autoprefixer'),
+  poststylus = require('poststylus'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const config = require('./config'),
+  banner = require('./banner');
 
 const webpackConfig = {
   module: {},

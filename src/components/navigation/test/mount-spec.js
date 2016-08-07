@@ -1,14 +1,21 @@
 /* eslint no-unused-expressions: 0 */
-import App from 'components/app';
 
-describe('Navigation', () => {
-  let component;
+import { expect } from 'helpers/test-helper';
 
-  beforeEach(() => {
-    component = renderComponent(App);
+import Navigation, { style } from 'components/navigation';
+
+describe('#Navigation', () => {
+  let node;
+
+  beforeEach(function() {
+    node = renderComponent(Navigation, document.getElementById('app'), {});
   });
 
-  it('Renders', () => {
-    expect(component.find('.navigation')).to.exist;
+  it('-Render', function() {
+    expect(node).to.exist;
+  });
+
+  it('-Load style', function() {
+    expect(node.className).to.equal(style.navigation);
   });
 });
