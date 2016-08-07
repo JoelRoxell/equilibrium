@@ -38,6 +38,7 @@
     "no-console": 0,
     "react/jsx-curly-spacing": [2, "always"],
     "react/jsx-no-literals": 1,
+    "jsx-quotes": ["error", "prefer-single"],
     "one-var": [2, "always"]
   }
 }
