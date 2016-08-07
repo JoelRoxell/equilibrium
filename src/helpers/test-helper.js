@@ -53,6 +53,7 @@ window.renderComponent = renderComponent;
 window.expect = expect;
 
 export {
+  simulate,
   renderComponent,
   expect
 };
