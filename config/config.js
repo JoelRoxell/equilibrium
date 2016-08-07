@@ -1,7 +1,11 @@
 const path = require('path');
 
 let config = {
-  env: process.env.NODE_ENV || 'development',
+  env: {
+    PRODUCTION: 'production',
+    DEVELOPMENT: 'development',
+    TEST: 'test'
+  },
 
   // Structure
   base_path: path.resolve(__dirname, '..'),

@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -r ./build/*",
     "start": "webpack",
-    "dev": "node_modules/babel-cli/bin/babel-node.js server/app.js ",
+    "dev": "node_modules/babel-cli/bin/babel-node.js bin/server.js ",
     "devtest": "webpack-dev-server --config config/webpack.tests.config.js",
     "test": "NODE_PATH=./src mocha \"./src/**/test/*\" --compilers js:babel-core/register --recursive --require \"src/helpers/test-helper.js\"",
     "test-watch": "webpack-dev-server --inline --config test/webpack.tests.config.js ",

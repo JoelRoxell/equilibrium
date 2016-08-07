@@ -1,14 +1,14 @@
-const path = require('path');
+import path from 'path';
 
-const webpack = require('webpack'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  precss = require('precss'),
-  autoprefixer = require('autoprefixer'),
-  poststylus = require('poststylus'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import precss from 'precss';
+import autoprefixer from 'autoprefixer';
+import poststylus from 'poststylus';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const config = require('./config'),
-  banner = require('./banner');
+import config from './config';
+import banner from './banner';
 
 const webpackConfig = {
   module: {},
@@ -42,7 +42,7 @@ webpackConfig.entry = [
 webpackConfig.output = {
   path: path.join(config.base_path, 'build'),
   filename: 'bundle.js',
-  publicPath: '/assets/',
+  publicPath: '/dist/',
   chunkFilename: '[id].js'
 };
 
