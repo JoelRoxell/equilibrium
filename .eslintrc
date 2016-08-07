@@ -37,6 +37,7 @@
     }],
     "no-console": 0,
     "react/jsx-curly-spacing": [2, "always"],
+    "react/jsx-no-literals": 1,
     "one-var": [2, "always"]
   }
 }

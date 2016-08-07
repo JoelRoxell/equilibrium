@@ -1,11 +1,7 @@
 /* Pixel to rem */
 rem(val)
   u = unit(val)
-
-  if (u is 'px')
-    return  unit(val / remBase, 'rem')
-  else
-    return unit(val / remBase, 'rem')
+  return  unit(val / remBase, 'rem')
 
 /* Screen */
 lesserThan(device)
