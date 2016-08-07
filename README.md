@@ -37,8 +37,41 @@ npm install
 Run webpack (HMR) and hack on:
 
 ```
+export NODE_ENV=development
 npm run dev
 ```
 
 ## Test
 Use `npm run test` to run the test suite once, `npm test-watch` to run defined specs on save.
+```
+export NODE_ENV=test
+npm run test-watch
+```
+### Example
+```javascript
+import { expect, renderComponent } from 'helpers/test-helper';
+import Navigation, { style } from 'components/navigation';
+
+describe('#Navigation', () => {
+  let node;
+
+  beforeEach(function() {
+    node = renderComponent(Navigation, document.getElementById('app'), {});
+  });
+
+  it('-Render', function() {
+    expect(node).to.exist;
+  });
+
+  it('-Load style', function() {
+    expect(node.className).to.equal(style.navigation);
+  });
+});
+```
+
+
+## Compile
+Builds the project based on `NODE_ENV`, files are outputed to: `build`.
+```
+npm run compile
+```
