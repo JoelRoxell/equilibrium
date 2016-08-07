@@ -1,7 +1,7 @@
 import { formValidator } from 'helpers';
 
-describe('Form validator', () => {
-  it('Validate string length', () => {
+describe('#Form validator', () => {
+  it('-Validate string length', () => {
     const fieldRules = {
       password: {
         type: 'text',

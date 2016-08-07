@@ -1,11 +1,12 @@
 const path = require('path');
 
-const config = {
+let config = {
   env: process.env.NODE_ENV || 'development',
 
   // Structure
   base_path: path.resolve(__dirname, '..'),
   dir_src: 'src',
+  dir_test: 'test',
   dir_dist: 'dist',
   dir_server: 'server',
 

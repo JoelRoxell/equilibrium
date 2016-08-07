@@ -8,13 +8,10 @@
     <div id="mocha"></div>
     <div hidden id="app" class="app">
     </div>
-    <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
     <script src="/node_modules/chai/chai.js"></script>
     <script>
-      mocha.setup({
-        ui: 'bdd',
-        //ignoreLeaks: true,
-      });
+      mocha.setup('bdd');
     </script>
     <!-- load your test files here -->
     <script src='/assets/test.bundle.js'></script>
