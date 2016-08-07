@@ -15,7 +15,7 @@ webpackTestConfig.entry = [
 ];
 
 webpackTestConfig.output = {
-  path: path.join(config.base_path, 'build'),
+  path: path.join(config.base_path, 'build/tmp'),
   filename: 'bundle.js',
   publicPath: '/dist/',
   chunkFilename: '[id].js'
