@@ -1,28 +1,34 @@
-import webpack from 'webpack'
-var _debug = require('debug')
-var debug = _debug('app:bin:compiler')
-import webpackConfig from '../config/webpack.config'
+import webpack from 'webpack';
+import { webpackConfig, webpackTestConfig, config } from '../config';
 
-const compiler = webpack(webpackConfig)
-debug('Runing compiler')
+const buildConfig = (function(nodeEnv = config.env.DEVELOPMENT) {
+  switch (nodeEnv) {
+    case config.env.PRODUCTION:
+    case config.env.DEVELOPMENT:
+      return webpackConfig;
 
-/* TODO Build bundle */
-compiler.run((err, stats) => {
+    case config.env.TEST:
+      return webpackTestConfig;
+
+    default:
+      throw new Error('Build mode bust be passed as an argument');
+  }
+})(process.env.NODE_ENV);
+
+webpack(buildConfig).run((err, stats) => {
+  var jsonStats = stats.toJson();
+
   if (err) {
-    return debug(err)
+    for (let i = 0; i < jsonStats.errors.length; i++) {
+      console.log(jsonStats.errors[i]);
+    }
+
+    throw err;
   }
 
-  var jsonStats = stats.toJson()
-
-  if (jsonStats.errors.length > 0) {
-    return console.error(jsonStats.errors)
+  for (let i = 0; i < jsonStats.warnings.length; i++) {
+    console.log(jsonStats.warnings[i]);
   }
 
-  if (jsonStats.warnings.length > 0) {
-    console.warn(jsonStats.warnings)
-  }
-
-  console.log(webpackConfig.output.path)
-  debug('-- Webpack compile completed --')
-  debug('Compiler finished.')
-})
+  console.log('\u001b[32m', 'Completed compilation 🍾', '\u001b[0m', webpackConfig.output.path);
+});

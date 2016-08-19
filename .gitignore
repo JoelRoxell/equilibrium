@@ -6,3 +6,5 @@ dist
 
 coverage
 build
+
+test/tmp

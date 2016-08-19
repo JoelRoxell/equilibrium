@@ -1,0 +1,33 @@
+.input
+  display: flex
+  flex-direction: column
+  width: 100%
+
+  .field
+    width:100%
+    padding-top: rem(12)
+    padding-bottom: rem(12)
+    margin-top: 0
+    border: none
+    outline: none
+    font-size: rem(18)
+    color: actionColor
+
+  .marker
+    transition: width 0.3s
+    border-bottom: 1.5px solid borderColor
+    width: 0
+
+    &.active
+      width: 100%
+
+  .marker:hover
+      color: red;
+
+  .error-container
+    text-align: left
+    color: errorColor
+
+    .error-list
+      display: flex;
+      flex-direction: column;
